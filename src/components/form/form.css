@@ -1,0 +1,65 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    margin: 0 auto;
+    border-radius: .5rem;
+}
+.form h1{
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    background-color: blue;
+    border-radius: .5rem .5rem 0 0;
+
+    
+}
+.form .input-group{
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+}
+.input-group input,.input-group select{
+    padding: 0.4rem 0;
+    border: 1px solid rgba(70, 69, 69, 0.292);
+}
+.group-comercial{
+    display: flex;
+    flex-direction: column;
+}
+.input-group .label{
+    width: 120px;
+}
+.input{
+    width: 200px;
+    text-align: center;
+    border-radius: .5rem;
+}
+
+.input-ajuste-porcentaje{
+    width: 50px;
+    margin-right: 2rem;
+    text-align: center;
+}
+.input-ajuste{
+    width: 200px;
+}
+.switch{
+    width: 200px;
+}
+.porcentaje-switch{
+    display: flex;
+}
+
+.error{
+    width: 100%;
+    font-size: .8rem;
+    color: red;
+}
+.btn{
+    padding: .5rem;
+    margin-top: 0.5rem;
+    border-radius: .5rem;
+    border: none;
+}
