@@ -1,13 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { promociones } from "../data";
 
-import {
-  PDFViewer,
-  Page,
-  Text,
-  Document,
-  StyleSheet,
-} from "@react-pdf/renderer";
+import { Page, Text, Document, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   container: {
@@ -52,7 +46,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const PDFFile = ({ cost }) => {
+const PDFFile = ({ tiempo, setLoading }) => {
+  const [cost, setCost] = useState("");
+  const [average, setAverage] = useState("");
+
   const datos = localStorage.getItem("datos")
     ? JSON.parse(localStorage.getItem("datos"))
     : "";
@@ -71,6 +68,46 @@ const PDFFile = ({ cost }) => {
 
   const promocion = promociones.filter((elem) => elem.nombre === promo);
 
+  // useEffect(() => {
+
+  // }, [porcentajeAjuste, alquiler, tiempo, tipo_alquiler, setAverage]);
+
+  useEffect(() => {
+    const calculateAverage = () => {
+      if (tipo_alquiler === "comercial") {
+        let arrayAjustes = [];
+
+        for (let i = 0; i < tiempo - 1; i++) {
+          arrayAjustes[0] = alquiler;
+          arrayAjustes.push(arrayAjustes[i] * (porcentajeAjuste / 100 + 1));
+        }
+        setAverage(Math.ceil(arrayAjustes.reduce((a, b) => a + b / tiempo, 0)));
+      }
+    };
+    calculateAverage();
+
+    if (tipo_alquiler === "vivienda") {
+      setCost((alquiler + expensas) * (años * 12) * 0.06);
+    } else if (tipo_alquiler === "comercial" && iva === false) {
+      // Puede ir la promesa: que se ejecute el costo luego de la función calculateAverage
+      setCost((average + expensas) * (años * 12) * 0.06);
+    } else if (tipo_alquiler === "comercial" && iva === true) {
+      setCost((average + expensas) * (años * 12) * 0.06 * 1.21);
+    }
+  }, [
+    alquiler,
+    average,
+    años,
+    cost,
+    porcentajeAjuste,
+    tipo_alquiler,
+    expensas,
+    iva,
+    setAverage,
+    tiempo,
+  ]);
+  console.log(average);
+  console.log(cost);
   return (
     <Document>
       <Page style={styles.body} size="A4">

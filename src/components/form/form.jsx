@@ -6,7 +6,7 @@ import { tipoAlquiler, tipoAjuste, asesores, promociones } from "../../data";
 import { FormControlLabel, Switch } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const FormCalculate = ({ setDatos }) => {
+const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
   const navigate = useNavigate();
   const errores = {
     required: "Este campo es requerido",
@@ -41,6 +41,23 @@ const FormCalculate = ({ setDatos }) => {
         localStorage.clear();
         localStorage.setItem("datos", JSON.stringify(values));
         setDatos(values);
+
+        if (values?.tipo_alquiler === "comercial") {
+          if (values?.tipoAjuste === "semestral") {
+            setTiempo((values?.años * 12) / 6);
+          } else if (values?.tipoAjuste === "trimestral") {
+            setTiempo((values?.años * 12) / 3);
+          } else if (values?.tipoAjuste === "cuatrimestral") {
+            setTiempo((values?.años * 12) / 4);
+          } else if (values?.tipoAjuste === "anual") {
+            setTiempo((values?.años * 12) / 12);
+          }
+        }
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+
         navigate("/template");
         resetForm();
       }}
