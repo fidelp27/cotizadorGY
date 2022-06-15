@@ -80,6 +80,7 @@ const App = () => {
               setDatos={setDatos}
               setLoading={setLoading}
               setTiempo={setTiempo}
+              tiempo={tiempo}
             />
           }
         />
