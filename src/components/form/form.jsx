@@ -42,18 +42,6 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
         localStorage.setItem("datos", JSON.stringify(values));
         setDatos(values);
 
-        if (values?.tipo_alquiler === "comercial") {
-          if (values?.tipoAjuste === "semestral") {
-            setTiempo((values?.años * 12) / 6);
-          } else if (values?.tipoAjuste === "trimestral") {
-            setTiempo((values?.años * 12) / 3);
-          } else if (values?.tipoAjuste === "cuatrimestral") {
-            setTiempo((values?.años * 12) / 4);
-          } else if (values?.tipoAjuste === "anual") {
-            setTiempo((values?.años * 12) / 12);
-          }
-        }
-
         setTimeout(() => {
           setLoading(false);
         }, 2000);

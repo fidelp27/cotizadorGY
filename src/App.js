@@ -8,7 +8,6 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const App = () => {
   // const [cost, setCost] = useState("");
-  const [tiempo, setTiempo] = useState("");
   // const [average, setAverage] = useState("");
   const [datos, setDatos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -76,16 +75,10 @@ const App = () => {
         <Route
           path="/"
           element={
-            <FormCalculate
-              setDatos={setDatos}
-              setLoading={setLoading}
-              setTiempo={setTiempo}
-            />
+            <FormCalculate setDatos={setDatos} setLoading={setLoading} />
           }
         />
-        {!loading && (
-          <Route path="/template" element={<PDFFile tiempo={tiempo} />} />
-        )}
+        {!loading && <Route path="/template" element={<PDFFile />} />}
       </Routes>
     </div>
   );
