@@ -18,10 +18,10 @@ input[type=number]{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
     width: 450px;
-    background-color: rgba(240, 255, 255, 0.421);
+    margin: 0 auto;
     border-radius: .5rem;
+    background-color: rgba(255, 255, 255, 0.251);
 }
 .form h1{
     margin: 0;
@@ -29,13 +29,12 @@ input[type=number]{
     text-align: center;
     background-color: blue;
     border-radius: .5rem .5rem 0 0;
-    letter-spacing: 1px;
+    text-align: center;
     color: azure;
-
-    
+    letter-spacing: 2px;    
 }
 .form .input-group{
-    display: flex;
+    display: flex;  
     align-items: center;
     justify-content: center;
     padding: .5rem;
@@ -44,17 +43,20 @@ input[type=number]{
     padding: 0.5rem 0;
     border: 1px solid rgba(70, 69, 69, 0.292);
     border-radius: .5rem;
+
 }
 .group-comercial{
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 .input-group .label{
     width: 150px;
     text-align: left;
     font-weight: 700;
     letter-spacing: 1px;
+
 }
 .input{
     width: 200px;
@@ -83,6 +85,7 @@ input[type=number]{
     font-size: .9rem;
     color: red;
     font-weight: bold;
+    text-align: center;
 }
 .btn{
     padding: .8rem;
@@ -100,22 +103,22 @@ input[type=number]{
 }
 .show-cuotas{
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: .4rem;
-    margin-left: 2rem;
 }
 .fieldset{
     display: flex;
-    text-align: left;
-    border: none;
+    justify-content: center;
+    text-align: center;
     font-weight: bold;
+    width: 100%;
 }
 .fieldset span{
-    font-size: .8rem;
-    
+    font-size: .7rem;
+    font-weight: bolder;
+
 }
 .switch-cuotas{
     width: 100px;
-    margin: .4rem auto;
-    transition: .5s ease;
-
 }
