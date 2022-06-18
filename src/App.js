@@ -8,22 +8,15 @@ import Error404 from "./components/error404/error404";
 
 const App = () => {
   const [datos, setDatos] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   return (
     <div className="App">
       <Routes>
         <Route
           path="/"
-          element={
-            <FormCalculate
-              setDatos={setDatos}
-              datos={datos}
-              setLoading={setLoading}
-            />
-          }
+          element={<FormCalculate setDatos={setDatos} datos={datos} />}
         />
-        {!loading && <Route path="/template" element={<PDFFile />} />}
+        <Route path="/template" element={<PDFFile />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

@@ -47,11 +47,6 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
           localStorage.clear();
           localStorage.setItem("datos", JSON.stringify(values));
           setDatos(values);
-
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-
           navigate("/template");
           resetForm();
         }}
