@@ -1,0 +1,12 @@
+.header-container{
+    display: flex;
+    align-items: center;
+    
+}
+
+.img-header{
+    width: 140px;
+    height: 80px;
+    padding: .5rem;
+    margin: .5rem 0 0 4rem;
+}
