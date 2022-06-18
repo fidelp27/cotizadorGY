@@ -14,8 +14,11 @@ import {
 
 const styles = StyleSheet.create({
   pdfViewer: {
-    height: "100vh",
-    width: "100%",
+    height: "90vh",
+    width: "90%",
+    position: "absolute",
+    left: "4%",
+    top: "7%",
   },
   container: {
     height: "100vh",

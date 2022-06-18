@@ -1,0 +1,21 @@
+.error-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://i.imgur.com/tljDVS6.jpg");
+    background-position: center;
+    background-repeat: none;
+    background-size: contain;
+}
+.btn-error{
+    background-color: chocolate;
+    color: azure;
+    padding: .8rem;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 1rem;
+
+}
