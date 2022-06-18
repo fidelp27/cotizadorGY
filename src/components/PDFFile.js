@@ -239,17 +239,14 @@ const PDFFile = () => {
       <button
         onClick={() => volver()}
         style={{
-          backgroundColor: "red",
+          width: "100%",
+          backgroundColor: "rgba(255, 0, 0, 0.278)",
           border: "none",
           borderRadius: "5px",
-          // position: "absolute",
-          // left: "70%",
-          // top: "1.5%",
           padding: "10px",
-          letterSpacing: "1px",
+          letterSpacing: "2px",
           cursor: "pointer",
-          marginLeft: "0",
-          marginRight: "0",
+          color: "white",
         }}
       >
         Nueva cotización
