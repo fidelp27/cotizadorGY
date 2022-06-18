@@ -13,9 +13,12 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
     required: "Este campo es requerido",
     tipoAlquiler: "Debes seleccionar el tipo de alquiler",
     años: "El tiempo mínimo es un año",
+    uno: "",
+    alquiler: "El mínimo es 1",
+    positivo: "Si no hay expensas, por favor coloque cero",
   };
   const validationSchema = Yup.object().shape({
-    alquiler: Yup.number().required(errores.required).min(0, errores.positivo),
+    alquiler: Yup.number().required(errores.required).min(1, errores.alquiler),
     expensas: Yup.number().required(errores.required).min(0, errores.positivo),
     años: Yup.number().required(errores.required).min(1, errores.años),
     tipo_alquiler: Yup.string().required(errores.required),
@@ -23,6 +26,7 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
     porcentajeAjuste: Yup.number().min(0, errores.positivo),
     promo: Yup.string().required(errores.required),
     asesor: Yup.string().required(errores.required),
+    uno: Yup.bool().isTrue(true),
   });
   return (
     <>
@@ -219,7 +223,7 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
                   <Field as="select" name="asesor" className="input">
                     <option value="">Escoge tu nombre</option>
                     {React.Children.toArray(
-                      asesores.map((asesores) => {
+                      asesores.sort().map((asesores) => {
                         return (
                           <option value={asesores.nombre}>
                             {asesores.nombre.toUpperCase()}
@@ -249,9 +253,10 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
                             size="small"
                           />
                         }
-                        className="switch-cuotas"
+                        className={errors.uno && "switch-cuotas error-uno"}
                         label="1 cuota"
                       />
+
                       <FormControlLabel
                         control={
                           <Switch
@@ -281,6 +286,7 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
                     </fieldset>
                   </div>
                 )}
+
                 <button type="submit" className="btn">
                   Calcular
                 </button>

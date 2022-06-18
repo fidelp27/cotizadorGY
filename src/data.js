@@ -18,7 +18,7 @@ export const promociones = [
     seisPagos: 0,
   },
   {
-    nombre: "Convenio Renovación Nena",
+    nombre: "Renovación",
     unPago: 0.2,
     tresPagos: 0.2,
     seisPagos: 0.2,
@@ -35,41 +35,18 @@ export const promociones = [
     tresPagos: 0.2,
     seisPagos: "",
   },
+  { nombre: "Colectividades", unPago: 0.2, tresPagos: 0.15, seisPagos: "" },
   {
-    nombre: "Asociación Enfermeros Venezolanos en Argentina",
+    nombre: "Embajadas y Consulados",
     unPago: 0.2,
-    tresPagos: 0.2,
-    seisPagos: 0.2,
+    tresPagos: 0.15,
+    seisPagos: "",
   },
   {
-    nombre: "Asociación Farmacéuticos Venezolanos",
-    unPago: 0.2,
+    nombre: "Convenio Estudiantes",
+    unPago: 0.3,
     tresPagos: 0.2,
-    seisPagos: 0.2,
-  },
-  {
-    nombre: "Asociación Kinesiólogos Venezolanos",
-    unPago: 0.2,
-    tresPagos: 0.2,
-    seisPagos: 0.2,
-  },
-  {
-    nombre: "Asociación Mujeres Colombianas",
-    unPago: 0.2,
-    tresPagos: 0.2,
-    seisPagos: 0.2,
-  },
-  {
-    nombre: "Asociación Médicos Venezolanos",
-    unPago: 0.2,
-    tresPagos: 0.2,
-    seisPagos: 0.2,
-  },
-  {
-    nombre: "Asociación Ingienieros en Argentina",
-    unPago: 0.2,
-    tresPagos: 0.2,
-    seisPagos: 0.2,
+    seisPagos: "",
   },
   {
     nombre: "Renovación FINAER",
@@ -78,10 +55,22 @@ export const promociones = [
     seisPagos: 0.1,
   },
   {
+    nombre: "RESPALDAR",
+    unPago: 0.3,
+    tresPagos: 0.15,
+    seisPagos: 0.1,
+  },
+  {
     nombre: "Garantía Especial",
     unPago: 0.15,
     tresPagos: 0.05,
     seisPagos: 0,
+  },
+  {
+    nombre: "Globant",
+    unPago: 0.25,
+    tresPagos: 0.1,
+    seisPagos: 0.05,
   },
 ];
 
@@ -100,6 +89,11 @@ export const asesores = [
     nombre: "Federico Peyras",
     email: "federico@garantiaya.com.ar",
     cargo: "Asesor Comercial",
+  },
+  {
+    nombre: "Dairalys Carrero",
+    email: "daira@garantiaya.com.ar",
+    cargo: "Asesora Comercial",
   },
   {
     nombre: "Giuliana Ramirez",
