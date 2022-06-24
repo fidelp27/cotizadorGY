@@ -72,6 +72,12 @@ export const promociones = [
     tresPagos: 0.1,
     seisPagos: 0.05,
   },
+  {
+    nombre: "Recupero",
+    unPago: 0.3,
+    tresPagos: 0.15,
+    seisPagos: 0.1,
+  },
 ];
 
 export const asesores = [
