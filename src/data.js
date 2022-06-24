@@ -43,9 +43,9 @@ export const promociones = [
     seisPagos: "",
   },
   {
-    nombre: "Convenio Estudiantes",
-    unPago: 0.3,
-    tresPagos: 0.2,
+    nombre: "Convenio Estudiantes NUMES || TODO BAIRES",
+    unPago: 0.25,
+    tresPagos: 0.15,
     seisPagos: "",
   },
   {
