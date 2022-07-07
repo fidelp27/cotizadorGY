@@ -37,6 +37,11 @@ const styles = StyleSheet.create({
     borderRightColor: "blue",
     borderTopColor: "blue",
   },
+  containerimage: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
   image: {
     width: 90,
     height: 50,
@@ -48,48 +53,50 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 12,
     marginRight: 10,
-    textAlign: "right",
   },
   titleContainer: {
     display: "flex",
-    justifyContent: "center",
-    padding: 10,
-    marginTop: 10,
+    marginTop: 40,
   },
   title: {
-    fontSize: 16,
-    fontWeight: 700,
-    textAlign: "center",
-    letterSpacing: 1,
+    fontSize: 14,
+    fontWeight: "bold",
     marginBottom: 15,
   },
 
   montos: {
-    width: "60%",
+    width: "100%",
     display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    marginBottom: 15,
-    lineHeight: 1.3,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginBottom: 20,
   },
 
   text: {
-    fontSize: 12,
-    textAlign: "justify",
-    fontFamily: "Times-Roman",
-    fontWeight: 700,
+    fontSize: 11,
+    marginRight: 40,
+    lineHeight: 2.3,
   },
-  opciones: {
-    fontSize: 16,
-    fontWeight: 700,
-    textAlign: "center",
-    letterSpacing: 1,
+  costocontainer: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
     marginBottom: 15,
   },
   costo: {
-    fontSize: 15,
-    textAlign: "justify",
-    fontWeight: 700,
+    fontSize: 11,
+    marginBottom: 20,
+  },
+  price: {
+    fontSize: 14,
+    fontWeight: "bold",
+    letterSpacing: 1,
+    marginLeft: 2,
+    marginBottom: 20,
+  },
+  opciones: {
+    fontSize: 14,
+    fontWeight: "bold",
     marginBottom: 15,
   },
 
@@ -257,19 +264,20 @@ const PDFFile = () => {
       <PDFViewer style={styles.pdfViewer}>
         <Document title="Cotización de garantía">
           <Page style={styles.body} size="A4">
-            <View>
+            <View style={styles.containerimage}>
               <Image
                 src="https://i.imgur.com/Z0w4GsW.png"
                 style={styles.image}
               />
             </View>
-            <View style={styles.containerDate}>
-              <Text style={styles.date}>{hora} </Text>
-            </View>
             <View style={styles.titleContainer}>
-              <Text style={styles.title}>Cotización</Text>
+              <Text style={styles.title}>
+                Cotización de tu garantía de alquiler
+              </Text>
             </View>
             <View style={styles.montos}>
+              <Text style={styles.text}>Fecha: {hora} </Text>
+
               <Text style={styles.text}>
                 Alquiler: ${alquiler.toLocaleString("es-AR")}
               </Text>
@@ -282,21 +290,24 @@ const PDFFile = () => {
 
               {tipo_alquiler === "comercial" && (
                 <>
-                  <Text style={styles.text}>Ajuste: {porcentajeAjuste}%</Text>
-                  <Text style={styles.text}>Tipo de ajuste: {tipoAjuste}</Text>
+                  <Text style={styles.text}>
+                    Ajuste: {porcentajeAjuste}% {tipoAjuste}
+                  </Text>
                 </>
               )}
               {iva === true && <Text style={styles.text}>IVA: 21% </Text>}
             </View>
-
-            <Text style={styles.costo}>
-              Costo: $
-              {tipo_alquiler === "vivienda"
-                ? cost.toLocaleString("es-AR")
-                : comercialCost.toLocaleString("es-AR")}
-            </Text>
-
-            <Text style={styles.opciones}>Opciones de pago</Text>
+            <View style={styles.costocontainer}>
+              <Text style={styles.costo}>
+                Costo de la garantía de alquiler GY: $
+              </Text>
+              <Text style={styles.price}>
+                {tipo_alquiler === "vivienda"
+                  ? cost.toLocaleString("es-AR")
+                  : comercialCost.toLocaleString("es-AR")}
+              </Text>
+            </View>
+            <Text style={styles.opciones}>Formas de Pago y financiación</Text>
             {React.Children.toArray(
               promocion.map((elem) => {
                 return (
