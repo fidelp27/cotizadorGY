@@ -8,6 +8,8 @@ import {
   Document,
   StyleSheet,
   View,
+  Link,
+  Font,
   Image,
   PDFViewer,
 } from "@react-pdf/renderer";
@@ -31,16 +33,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 45,
     display: "flex",
     flexDirection: "column",
-    border: 2,
-    borderBottomColor: "red",
-    borderLeftColor: "red",
-    borderRightColor: "blue",
-    borderTopColor: "blue",
   },
   containerimage: {
     width: "100%",
     display: "flex",
     alignItems: "center",
+    marginTop: 10,
   },
   image: {
     width: 90,
@@ -60,7 +58,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 1000,
     marginBottom: 15,
   },
 
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 11,
+    fontSize: 10,
     marginRight: 40,
     lineHeight: 2.3,
   },
@@ -90,7 +88,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 14,
     fontWeight: "bold",
-    letterSpacing: 1,
+    letterSpacing: 0.5,
     marginLeft: 2,
     marginBottom: 20,
   },
@@ -104,51 +102,127 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    margin: 20,
+    margin: 5,
   },
   pagos: {
-    width: 280,
+    width: 400,
     fontSize: 12,
+    borderBottom: "1px solid #bebebe",
   },
-  cuotas: {
+  percentage: {
+    fontSize: 14,
+    marginBottom: 1,
+  },
+  cuotaText: {
     fontSize: 10,
-    marginTop: 10,
-    marginLeft: 15,
-    lineHeight: 1.1,
+    marginBottom: 5,
   },
-  ahorroContainer: {
+  containerAmount: {
+    display: "flex",
+    position: "absolute",
+    top: 23,
+    right: 85,
+    alignItems: "bottom",
+  },
+  containerAmountThree: {
+    display: "flex",
+    position: "absolute",
+    top: 20,
+    right: 85,
+    alignItems: "bottom",
+  },
+  containerAmountSix: {
+    display: "flex",
+    position: "absolute",
+    top: 12,
+    right: 85,
+    alignItems: "bottom",
+  },
+  amount: {
+    fontSize: 14,
+    fontWeight: 700,
+  },
+  amountSix: {
+    fontSize: 14,
+    fontWeight: 700,
+    marginLeft: 85,
+  },
+  cuotasText: {
     display: "flex",
     flexDirection: "row",
-    borderRadius: 25,
-    marginLeft: 12,
-    transform: "rotate(-2)",
+    justifyContent: "space-between",
   },
-  ahorroImage: {
-    width: 22,
-    height: 22,
-    textAlign: "center",
+  cincoCuotas: {
+    display: "flex",
+    flexDirection: "row",
+    fontSize: 10,
+    position: "absolute",
+    top: 30,
+    right: 85,
   },
-  ahorroAmount: {
-    fontSize: 12,
-    fontWeight: 700,
-    letterSpacing: 1,
-    marginLeft: 10,
-    color: "red",
+  containerNota: {
+    marginTop: 40,
+    marginBottom: 20,
   },
   nota: {
-    fontSize: 8,
-    lineHeight: 1.5,
-    marginTop: 10,
+    fontSize: 16,
+  },
+  containerNotaChange: {
+    width: "60%",
+    marginTop: 60,
+    lineHeight: 1.4,
+  },
+  notaChange: {
+    fontSize: 7,
   },
   asesor: {
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    fontSize: 12,
-    textAlign: "center",
-    marginTop: 40,
-    lineHeight: 1.5,
+    fontSize: 10,
+    lineHeight: 1.2,
+    marginTop: 20,
+  },
+  infoGeneral: {
+    width: "40%",
+    position: "absolute",
+    marginLeft: 45,
+    bottom: 60,
+    lineHeight: 1.4,
+  },
+  phone: {
+    fontSize: 10,
+    fontWeight: "bold",
+  },
+  address: {
+    fontSize: 9,
+  },
+  uri: {
+    fontSize: 9,
+    fontWeight: "bold",
+    textDecoration: "none",
+  },
+  imagesRRSS: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  rrss: {
+    width: 15,
+    height: 15,
+    color: "black",
+    marginRight: 1,
+  },
+  rrssYT: {
+    width: 15,
+    height: 15,
+    marginLeft: 3,
+  },
+  containerFinalImage: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    width: "65%",
   },
 });
 
@@ -315,17 +389,24 @@ const PDFFile = () => {
                     {/* 1 pago */}
                     {uno && (
                       <View style={styles.boxPrice}>
-                        <Text style={styles.pagos}>
-                          1 pago {elem.unPago * 100}% off: $
-                          {tipo_alquiler === "vivienda"
-                            ? Math.ceil(
-                                cost * (1 - elem.unPago)
-                              ).toLocaleString("es-AR")
-                            : Math.ceil(
-                                comercialCost * (1 - elem.unPago)
-                              ).toLocaleString("es-AR")}
-                        </Text>
-                        {/* 1 pago Ahorro */}
+                        <View style={styles.pagos}>
+                          <Text style={styles.percentage}>
+                            {elem.unPago * 100}% OFF
+                          </Text>
+                          <Text style={styles.cuotaText}>en 1 pago</Text>
+                        </View>
+                        <View style={styles.containerAmount}>
+                          <Text style={styles.amount}>
+                            $
+                            {tipo_alquiler === "vivienda"
+                              ? Math.ceil(
+                                  cost * (1 - elem.unPago)
+                                ).toLocaleString("es-AR")
+                              : Math.ceil(
+                                  comercialCost * (1 - elem.unPago)
+                                ).toLocaleString("es-AR")}
+                          </Text>
+                          {/* 1 pago Ahorro
                         <View style={styles.ahorroContainer}>
                           <Image
                             src="https://i.imgur.com/TCcXrha.png"
@@ -346,15 +427,21 @@ const PDFFile = () => {
                                   )
                                 ).toLocaleString("es-AR")}
                           </Text>
+                        </View> */}
                         </View>
                       </View>
                     )}
                     {/* 3 pagos */}
                     {tres && (
                       <View style={styles.boxPrice}>
-                        <View>
-                          <Text style={styles.pagos}>
-                            3 cuotas sin interés + {elem.tresPagos * 100}% off:
+                        <View style={styles.pagos}>
+                          <Text style={styles.percentage}>
+                            {elem.tresPagos * 100}% OFF
+                          </Text>
+                          <Text>en 3 cuotas sin interés</Text>
+                        </View>
+                        <View style={styles.containerAmountThree}>
+                          <Text style={styles.amount}>
                             $
                             {tipo_alquiler === "vivienda"
                               ? Math.ceil(
@@ -363,20 +450,18 @@ const PDFFile = () => {
                               : Math.ceil(
                                   comercialCost * (1 - elem.tresPagos)
                                 ).toLocaleString("es-AR")}
-                          </Text>
-                          <Text style={styles.cuotas}>
-                            3 cuotas de:$
+                            {/* 3 cuotas de:$
                             {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   (cost * (1 - elem.tresPagos)) / 3
                                 ).toLocaleString("es-AR")
                               : Math.ceil(
                                   (comercialCost * (1 - elem.tresPagos)) / 3
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString("es-AR")} */}
                           </Text>
                         </View>
                         {/* 3 pagos ahorro*/}
-                        <View style={styles.ahorroContainer}>
+                        {/* <View style={styles.ahorroContainer}>
                           {elem.tresPagos > 0 && (
                             <>
                               <Image
@@ -401,26 +486,33 @@ const PDFFile = () => {
                               </Text>
                             </>
                           )}
-                        </View>
+                        </View> */}
                       </View>
                     )}
                     {/* 6 cuotas */}
                     {seis && (
                       <View style={styles.boxPrice}>
-                        <View>
-                          <Text style={styles.pagos}>
-                            6 cuotas sin interés + {elem.seisPagos * 100}% off:
-                            $
-                            {tipo_alquiler === "vivienda"
+                        <View style={styles.pagos}>
+                          <Text style={styles.percentage}>
+                            {elem.seisPagos * 100}% OFF
+                            {/* {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   cost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")
                               : Math.ceil(
                                   comercialCost * (1 - elem.seisPagos)
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString("es-AR")} */}
                           </Text>
-                          <Text style={styles.cuotas}>
-                            25% primera cuota: $
+
+                          <View style={styles.cuotasText}>
+                            <Text>6 cuotas sin interés</Text>
+                            <Text>con primer cuota:</Text>
+                          </View>
+                        </View>
+
+                        <View style={styles.containerAmountSix}>
+                          <Text style={styles.amount}>
+                            $
                             {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   cost * (1 - elem.seisPagos) * 0.25
@@ -429,21 +521,11 @@ const PDFFile = () => {
                                   comercialCost * (1 - elem.seisPagos) * 0.25
                                 ).toLocaleString("es-AR")}
                           </Text>
-                          <Text style={styles.cuotas}>
-                            4 cuotas sin interés: $
-                            {tipo_alquiler === "vivienda"
-                              ? Math.ceil(
-                                  (cost * (1 - elem.seisPagos) * 0.75) / 4
-                                ).toLocaleString("es-AR")
-                              : Math.ceil(
-                                  (comercialCost *
-                                    (1 - elem.seisPagos) *
-                                    0.75) /
-                                    4
-                                ).toLocaleString("es-AR")}
-                          </Text>
-                          <Text style={styles.cuotas}>
-                            5 cuotas sin interés: $
+                        </View>
+                        <View style={styles.cincoCuotas}>
+                          <Text>más 5 cuotas de:</Text>
+                          <Text style={styles.amountSix}>
+                            $
                             {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   (cost * (1 - elem.seisPagos) * 0.75) / 5
@@ -456,8 +538,9 @@ const PDFFile = () => {
                                 ).toLocaleString("es-AR")}
                           </Text>
                         </View>
+
                         {/* 6 cuotas ahorro*/}
-                        <View style={styles.ahorroContainer}>
+                        {/* <View style={styles.ahorroContainer}>
                           {elem.seisPagos > 0 && (
                             <>
                               <Image
@@ -482,18 +565,17 @@ const PDFFile = () => {
                               </Text>
                             </>
                           )}
-                        </View>
+                        </View> */}
                       </View>
                     )}
-                    <View>
+
+                    <View style={styles.containerNota}>
+                      <Text style={styles.nota}>Estás a un "Sí, acepto"</Text>
                       <Text style={styles.nota}>
-                        El costo de la garantía varía de acuerdo al monto de
-                        alquiler, expensas, ajustes en el alquiler e IVA. En
-                        caso de que exista alguna variación en los costos de tu
-                        propiedad, por favor informa a tu asesor comercial para
-                        que se realicen los respectivos ajustes.
+                        de poder mudarte al lugar que querés!
                       </Text>
                     </View>
+
                     <View>
                       {React.Children.toArray(
                         asesor_res.map((elem) => {
@@ -509,6 +591,50 @@ const PDFFile = () => {
                           );
                         })
                       )}
+                    </View>
+                    <View style={styles.containerNotaChange}>
+                      <Text style={styles.notaChange}>
+                        El costo de la garantía varía de acuerdo al monto de
+                        alquiler, expensas, ajustes en el alquiler e IVA. En
+                        caso de que exista alguna variación en los costos de tu
+                        propiedad, por favor informa a tu asesor comercial para
+                        que se realicen los respectivos ajustes.
+                      </Text>
+                    </View>
+                    <View style={styles.infoGeneral}>
+                      <Text style={styles.phone}>0810-220-2202</Text>
+                      <Text style={styles.address}>
+                        Av. Álvarez Thomas 198 2°Q, C1427 CABA
+                      </Text>
+                      <Text style={styles.uri}>
+                        <Link src="www.garantiaya.com.ar" style={styles.uri}>
+                          garantiaya.com.ar
+                        </Link>
+                      </Text>
+                      <View style={styles.imagesRRSS}>
+                        <Image
+                          src="https://i.imgur.com/CaMh5Ht.jpg"
+                          style={styles.rrss}
+                        />
+                        <Image
+                          src="https://i.imgur.com/TtnrjoT.jpg"
+                          style={styles.rrss}
+                        />
+                        <Image
+                          src="https://i.imgur.com/ioPRxDA.jpg"
+                          style={styles.rrss}
+                        />
+                        <Image
+                          src="https://i.imgur.com/4giqW40.jpg"
+                          style={styles.rrssYT}
+                        />
+                      </View>
+                    </View>
+                    <View style={styles.containerFinalImage}>
+                      <Image
+                        src="https://i.imgur.com/Y0JVoOl.png"
+                        style={styles.finalImage}
+                      />
                     </View>
                   </>
                 );
