@@ -127,14 +127,22 @@ const styles = StyleSheet.create({
   containerAmountThree: {
     display: "flex",
     position: "absolute",
+<<<<<<< HEAD
     top: 20,
+=======
+    top: 17,
+>>>>>>> 2e88faf273081fe5ffbd68fd446610b6e9d7d2dd
     right: 85,
     alignItems: "bottom",
   },
   containerAmountSix: {
     display: "flex",
     position: "absolute",
+<<<<<<< HEAD
     top: 12,
+=======
+    top: 10,
+>>>>>>> 2e88faf273081fe5ffbd68fd446610b6e9d7d2dd
     right: 85,
     alignItems: "bottom",
   },
@@ -169,7 +177,11 @@ const styles = StyleSheet.create({
   },
   containerNotaChange: {
     width: "60%",
+<<<<<<< HEAD
     marginTop: 60,
+=======
+    marginTop: 100,
+>>>>>>> 2e88faf273081fe5ffbd68fd446610b6e9d7d2dd
     lineHeight: 1.4,
   },
   notaChange: {
