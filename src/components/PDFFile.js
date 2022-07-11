@@ -14,6 +14,24 @@ import {
   PDFViewer,
 } from "@react-pdf/renderer";
 
+Font.register({
+  family: "Raleway",
+  fonts: [
+    {
+      src: "http://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCPNLA3JC9c.ttf",
+    },
+    {
+      src: "http://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCPNLA3JC9c.ttf",
+      fontWeight: "bold",
+    },
+    {
+      src: "http://fonts.gstatic.com/s/raleway/v27/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4TbMPrQVIT9c2c8.ttf",
+      fontWeight: "light",
+      fontStyle: "italic",
+    },
+  ],
+});
+
 const styles = StyleSheet.create({
   pdfViewer: {
     height: "90vh",
@@ -30,9 +48,10 @@ const styles = StyleSheet.create({
   body: {
     paddingTop: 35,
     paddingBottom: 65,
-    paddingHorizontal: 45,
+    paddingHorizontal: 46,
     display: "flex",
     flexDirection: "column",
+    fontFamily: "Raleway",
   },
   containerimage: {
     width: "100%",
@@ -57,9 +76,10 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   title: {
-    fontSize: 14,
-    fontWeight: 1000,
+    fontSize: 15,
     marginBottom: 15,
+    fontWeight: 1000,
+    color: "rgb(30,53,121)",
   },
 
   montos: {
@@ -74,6 +94,9 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginRight: 40,
     lineHeight: 2.3,
+    color: "rgb(70,70,70)",
+
+    fontWeight: 500,
   },
   costocontainer: {
     display: "flex",
@@ -84,18 +107,22 @@ const styles = StyleSheet.create({
   costo: {
     fontSize: 11,
     marginBottom: 20,
+    fontWeight: 500,
+    color: "rgb(70,70,70)",
   },
   price: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 1000,
     letterSpacing: 0.5,
     marginLeft: 2,
     marginBottom: 20,
+    color: "rgb(40,40,40)",
   },
   opciones: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 1000,
     marginBottom: 15,
+    color: "rgb(30,53,121)",
   },
 
   boxPrice: {
@@ -112,10 +139,14 @@ const styles = StyleSheet.create({
   percentage: {
     fontSize: 14,
     marginBottom: 1,
+    fontWeight: 800,
+    color: "rgb(70,70,70)",
   },
   cuotaText: {
     fontSize: 10,
     marginBottom: 5,
+    fontWeight: 500,
+    color: "rgb(70,70,70)",
   },
   containerAmount: {
     display: "flex",
@@ -123,77 +154,87 @@ const styles = StyleSheet.create({
     top: 23,
     right: 85,
     alignItems: "bottom",
+    fontWeight: 1000,
   },
   containerAmountThree: {
     display: "flex",
     position: "absolute",
-<<<<<<< HEAD
     top: 20,
-=======
-    top: 17,
->>>>>>> 2e88faf273081fe5ffbd68fd446610b6e9d7d2dd
     right: 85,
     alignItems: "bottom",
+    fontWeight: 1000,
   },
   containerAmountSix: {
     display: "flex",
     position: "absolute",
-<<<<<<< HEAD
-    top: 12,
-=======
-    top: 10,
->>>>>>> 2e88faf273081fe5ffbd68fd446610b6e9d7d2dd
+    top: 13,
     right: 85,
     alignItems: "bottom",
+    fontWeight: 1000,
   },
   amount: {
-    fontSize: 14,
-    fontWeight: 700,
+    fontSize: 13,
+    fontWeight: 1000,
+    color: "rgb(40,40,40)",
   },
   amountSix: {
     fontSize: 14,
-    fontWeight: 700,
+    fontWeight: 1000,
     marginLeft: 85,
+    color: "rgb(40,40,40)",
   },
   cuotasText: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    color: "rgb(70,70,70)",
   },
   cincoCuotas: {
     display: "flex",
     flexDirection: "row",
     fontSize: 10,
     position: "absolute",
-    top: 30,
+    top: 40,
     right: 85,
+    fontWeight: 500,
   },
   containerNota: {
     marginTop: 40,
     marginBottom: 20,
   },
+  seisText: {
+    fontSize: 10,
+    fontWeight: 500,
+    color: "rgb(70,70,70)",
+  },
   nota: {
     fontSize: 16,
+    fontWeight: 1000,
+    color: "rgb(30,53,121)",
   },
   containerNotaChange: {
     width: "60%",
-<<<<<<< HEAD
-    marginTop: 60,
-=======
-    marginTop: 100,
->>>>>>> 2e88faf273081fe5ffbd68fd446610b6e9d7d2dd
+    marginTop: 40,
     lineHeight: 1.4,
   },
   notaChange: {
     fontSize: 7,
+    fontWeight: 500,
   },
   asesor: {
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    fontSize: 10,
+    fontSize: 9,
     lineHeight: 1.2,
     marginTop: 20,
+    fontWeight: 500,
+    color: "rgb(70,70,70)",
+  },
+  name: {
+    fontSize: 10,
+    fontWeight: 600,
+    color: "black",
   },
   infoGeneral: {
     width: "40%",
@@ -201,18 +242,22 @@ const styles = StyleSheet.create({
     marginLeft: 45,
     bottom: 60,
     lineHeight: 1.4,
+    fontWeight: 500,
+    color: "rgb(70,70,70)",
   },
   phone: {
     fontSize: 10,
-    fontWeight: "bold",
+    fontWeight: 1000,
+    color: "rgb(212,15,20)",
   },
   address: {
     fontSize: 9,
   },
   uri: {
     fontSize: 9,
-    fontWeight: "bold",
+    fontWeight: 1000,
     textDecoration: "none",
+    color: "rgb(40,40,40)",
   },
   imagesRRSS: {
     display: "flex",
@@ -393,7 +438,7 @@ const PDFFile = () => {
                   : comercialCost.toLocaleString("es-AR")}
               </Text>
             </View>
-            <Text style={styles.opciones}>Formas de Pago y financiación</Text>
+            <Text style={styles.opciones}>Formas de pago y financiación</Text>
             {React.Children.toArray(
               promocion.map((elem) => {
                 return (
@@ -450,7 +495,9 @@ const PDFFile = () => {
                           <Text style={styles.percentage}>
                             {elem.tresPagos * 100}% OFF
                           </Text>
-                          <Text>en 3 cuotas sin interés</Text>
+                          <Text style={styles.cuotaText}>
+                            en 3 cuotas sin interés
+                          </Text>
                         </View>
                         <View style={styles.containerAmountThree}>
                           <Text style={styles.amount}>
@@ -517,8 +564,12 @@ const PDFFile = () => {
                           </Text>
 
                           <View style={styles.cuotasText}>
-                            <Text>6 cuotas sin interés</Text>
-                            <Text>con primer cuota:</Text>
+                            <Text style={styles.cuotaText}>
+                              6 cuotas sin interés
+                            </Text>
+                            <Text style={styles.seisText}>
+                              con primer cuota:
+                            </Text>
                           </View>
                         </View>
 
@@ -535,7 +586,7 @@ const PDFFile = () => {
                           </Text>
                         </View>
                         <View style={styles.cincoCuotas}>
-                          <Text>más 5 cuotas de:</Text>
+                          <Text style={styles.seisText}>más 5 cuotas de:</Text>
                           <Text style={styles.amountSix}>
                             $
                             {tipo_alquiler === "vivienda"
@@ -594,7 +645,7 @@ const PDFFile = () => {
                           return (
                             <>
                               <View style={styles.asesor}>
-                                <Text>{elem.nombre} </Text>
+                                <Text style={styles.name}>{elem.nombre} </Text>
                                 <Text>{elem.cargo} </Text>
                                 <Text>{elem.email} </Text>
                                 <Text>+54 9 1130350918 </Text>
