@@ -51,7 +51,11 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
           localStorage.clear();
           localStorage.setItem("datos", JSON.stringify(values));
           setDatos(values);
-          navigate("/template");
+          if (values.promo !== "Mercado Libre") {
+            navigate("/template");
+          } else {
+            navigate("/templateML");
+          }
           resetForm();
         }}
       >

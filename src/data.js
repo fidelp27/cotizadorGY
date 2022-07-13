@@ -78,6 +78,14 @@ export const promociones = [
     tresPagos: 0.15,
     seisPagos: 0.1,
   },
+  {
+    nombre: "Mercado Libre",
+    unPago: 0.05,
+    tresPagos: 0.05,
+    seisPagos: 0,
+    nuevePagos: 0,
+    docePagos: 0,
+  },
 ];
 
 export const asesores = [

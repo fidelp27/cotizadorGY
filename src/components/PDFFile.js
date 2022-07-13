@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 14,
     fontWeight: 1000,
-    letterSpacing: 0.5,
     marginLeft: 2,
     marginBottom: 20,
     color: "rgb(40,40,40)",
@@ -430,9 +429,10 @@ const PDFFile = () => {
             </View>
             <View style={styles.costocontainer}>
               <Text style={styles.costo}>
-                Costo de la garantía de alquiler GY: $
+                Costo de la garantía de alquiler GY:
               </Text>
               <Text style={styles.price}>
+                $
                 {tipo_alquiler === "vivienda"
                   ? cost.toLocaleString("es-AR")
                   : comercialCost.toLocaleString("es-AR")}
