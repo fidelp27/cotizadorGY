@@ -96,7 +96,14 @@ input[type=number]{
     background-color: red;
     color: azure;
     letter-spacing: 1px;
+    transition: 1s ease;
+
 }
+.btn:disabled{
+    background-color: rgba(74, 73, 73, 0.697);
+    transition: 1s ease;
+}
+
 
 .btn:hover{
     background-color: rgba(255, 0, 0, 0.632);

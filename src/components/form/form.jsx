@@ -14,6 +14,7 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
     tipoAlquiler: "Debes seleccionar el tipo de alquiler",
     años: "El tiempo mínimo es un año",
     uno: "",
+    ml: "",
     alquiler: "El mínimo es 1",
     positivo: "Si no hay expensas, por favor coloque cero",
   };
@@ -26,7 +27,11 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
     porcentajeAjuste: Yup.number().min(0, errores.positivo),
     promo: Yup.string().required(errores.required),
     asesor: Yup.string().required(errores.required),
-    uno: Yup.bool().isTrue(true),
+    ml: Yup.bool(),
+    uno: Yup.bool().when("ml", {
+      is: "false",
+      then: Yup.bool().required("Es requerido"),
+    }),
   });
   return (
     <>
@@ -45,13 +50,15 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
           uno: false,
           tres: false,
           seis: false,
+          ml: false,
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
+          console.log(values);
           localStorage.clear();
           localStorage.setItem("datos", JSON.stringify(values));
           setDatos(values);
-          if (values.promo !== "Mercado Libre") {
+          if (values.ml !== true) {
             navigate("/template");
           } else {
             navigate("/templateML");
@@ -255,6 +262,7 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
                             onChange={handleChange}
                             color="secondary"
                             size="small"
+                            disabled={values.ml && true}
                           />
                         }
                         className={errors.uno && "switch-cuotas error-uno"}
@@ -269,6 +277,7 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
                             onChange={handleChange}
                             color="secondary"
                             size="small"
+                            disabled={values.ml && true}
                           />
                         }
                         className="switch-cuotas"
@@ -282,16 +291,40 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
                             onChange={handleChange}
                             color="secondary"
                             size="small"
+                            disabled={values.ml && true}
                           />
                         }
                         className="switch-cuotas"
                         label="6 cuotas"
                       />
+
+                      <FormControlLabel
+                        control={
+                          <Switch
+                            value={values.ml}
+                            name="ml"
+                            onChange={handleChange}
+                            color="secondary"
+                            size="small"
+                            disabled={values.uno && true}
+                          />
+                        }
+                        className="switch-cuotas"
+                        label="ML"
+                      />
                     </fieldset>
                   </div>
                 )}
 
-                <button type="submit" className="btn">
+                <button
+                  type="submit"
+                  className="btn"
+                  disabled={
+                    !values.ml && !values.uno && !values.tres && !values.seis
+                      ? true
+                      : false
+                  }
+                >
                   Calcular
                 </button>
               </Form>
