@@ -343,7 +343,8 @@ const PDFFileML = () => {
       años > 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+        promo === "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 + alquiler)
@@ -354,7 +355,8 @@ const PDFFileML = () => {
       años > 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+        promo === "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21 + alquiler)
@@ -365,7 +367,8 @@ const PDFFileML = () => {
       años === 1 &&
       promo !== "Garantía Especial" &&
       promo !== "Garantía Especial Estudiantes" &&
-      promo !== "Mercado Libre Especial"
+      promo !== "Mercado Pago Especial" &&
+      promo === "Mercado Pago Renovación"
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21));
     } else if (
@@ -374,7 +377,8 @@ const PDFFileML = () => {
       años === 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+        promo === "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
     } else if (
@@ -383,7 +387,8 @@ const PDFFileML = () => {
       años === 1 &&
       promo !== "Garantía Especial" &&
       promo !== "Garantía Especial Estudiantes" &&
-      promo !== "Mercado Libre Especial"
+      promo !== "Mercado Pago Especial" &&
+      promo !== "Mercado Pago Renovación"
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3));
     } else if (
@@ -392,7 +397,8 @@ const PDFFileML = () => {
       años === 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+        promo === "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setComercialCost(Math.ceil(average + expensas + alquiler * 1.3));
     } else if (tipo_alquiler === "comercial" && iva === false) {
@@ -410,7 +416,8 @@ const PDFFileML = () => {
       años === 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+        promo === "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setCost(Math.ceil((alquiler + expensas) * 1.3) + alquiler);
     } else if (
@@ -418,7 +425,8 @@ const PDFFileML = () => {
       años > 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+        promo === "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06) + alquiler);
     } else if (
@@ -426,7 +434,8 @@ const PDFFileML = () => {
       años === 1 &&
       (promo !== "Garantía Especial" ||
         promo !== "Garantía Especial Estudiantes" ||
-        promo !== "Mercado Libre Especial")
+        promo !== "Mercado Pago Especial" ||
+        promo === "Mercado Pago Renovación")
     ) {
       setCost(Math.ceil((alquiler + expensas) * 1.3));
     } else if (tipo_alquiler === "vivienda") {

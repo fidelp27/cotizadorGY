@@ -101,7 +101,7 @@ export const promociones = [
     transferencia: 0.05,
   },
   {
-    nombre: "Mercado Libre",
+    nombre: "Mercado Pago",
     unPago: 0.05,
     tresPagos: 0.05,
     seisPagos: 0,
@@ -109,12 +109,20 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Mercado Libre Especial",
+    nombre: "Mercado Pago Especial",
     unPago: 0.05,
     tresPagos: 0.05,
     seisPagos: 0,
     nuevePagos: 0,
     docePagos: 0,
+  },
+  {
+    nombre: "Mercado Pago Renovación",
+    unPago: 0.2,
+    tresPagos: 0.2,
+    seisPagos: 0.2,
+    nuevePagos: 0.2,
+    docePagos: 0.2,
   },
 ];
 
