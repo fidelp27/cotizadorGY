@@ -54,7 +54,6 @@ const FormCalculate = ({ setDatos, setLoading, setTiempo }) => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log(values);
           localStorage.clear();
           localStorage.setItem("datos", JSON.stringify(values));
           setDatos(values);

@@ -185,8 +185,8 @@ const styles = StyleSheet.create({
   cuotasText: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
     color: "rgb(70,70,70)",
+    marginRight: 30,
   },
   cincoCuotas: {
     display: "flex",
@@ -346,6 +346,7 @@ const PDFFile = () => {
     if (
       tipo_alquiler === "comercial" &&
       iva === false &&
+      años > 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
         promo === "Mercado Libre Especial")
@@ -382,7 +383,14 @@ const PDFFile = () => {
         promo === "Mercado Libre Especial")
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
-    } else if (tipo_alquiler === "comercial" && iva === false && años === 1) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === false &&
+      años === 1 &&
+      promo !== "Garantía Especial" &&
+      promo !== "Garantía Especial Estudiantes" &&
+      promo !== "Mercado Libre Especial"
+    ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3));
     } else if (
       tipo_alquiler === "comercial" &&
@@ -392,7 +400,7 @@ const PDFFile = () => {
         promo === "Garantía Especial Estudiantes" ||
         promo === "Mercado Libre Especial")
     ) {
-      setComercialCost(Math.ceil((average + expensas) * 1.3));
+      setComercialCost(Math.ceil(average + expensas + alquiler * 1.3));
     } else if (tipo_alquiler === "comercial" && iva === false) {
       setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
     } else if (tipo_alquiler === "comercial" && iva === true) {
@@ -554,9 +562,21 @@ const PDFFile = () => {
                           <Text style={styles.percentage}>
                             {elem.tresPagos * 100}% OFF
                           </Text>
-                          <Text style={styles.cuotaText}>
-                            en 3 cuotas sin interés
-                          </Text>
+                          <View style={styles.cuotasText}>
+                            <Text style={styles.cuotaText}>
+                              en 3 cuotas sin interés de:
+                            </Text>
+                            <Text style={styles.seisText}>
+                              $
+                              {tipo_alquiler === "vivienda"
+                                ? Math.ceil(
+                                    (cost * (1 - elem.tresPagos)) / 3
+                                  ).toLocaleString("es-AR")
+                                : Math.ceil(
+                                    (comercialCost * (1 - elem.tresPagos)) / 3
+                                  ).toLocaleString("es-AR")}
+                            </Text>
+                          </View>
                         </View>
                         <View style={styles.containerAmountThree}>
                           <Text style={styles.amount}>

@@ -304,9 +304,6 @@ const PDFFileML = () => {
     promo,
     asesor,
     iva,
-    uno,
-    tres,
-    seis,
   } = datos;
 
   const promocion = promociones.filter((elem) => elem.nombre === promo);
@@ -343,6 +340,7 @@ const PDFFileML = () => {
     if (
       tipo_alquiler === "comercial" &&
       iva === false &&
+      años > 1 &&
       (promo === "Garantía Especial" ||
         promo === "Garantía Especial Estudiantes" ||
         promo === "Mercado Libre Especial")
@@ -379,7 +377,14 @@ const PDFFileML = () => {
         promo === "Mercado Libre Especial")
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
-    } else if (tipo_alquiler === "comercial" && iva === false && años === 1) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === false &&
+      años === 1 &&
+      promo !== "Garantía Especial" &&
+      promo !== "Garantía Especial Estudiantes" &&
+      promo !== "Mercado Libre Especial"
+    ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3));
     } else if (
       tipo_alquiler === "comercial" &&
@@ -389,7 +394,7 @@ const PDFFileML = () => {
         promo === "Garantía Especial Estudiantes" ||
         promo === "Mercado Libre Especial")
     ) {
-      setComercialCost(Math.ceil((average + expensas) * 1.3));
+      setComercialCost(Math.ceil(average + expensas + alquiler * 1.3));
     } else if (tipo_alquiler === "comercial" && iva === false) {
       setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
     } else if (tipo_alquiler === "comercial" && iva === true) {
@@ -497,7 +502,6 @@ const PDFFileML = () => {
             <Text style={styles.opciones}>Formas de pago y financiación</Text>
             {React.Children.toArray(
               promocion.map((elem) => {
-                console.log(promocion);
                 return (
                   <>
                     {/* 1 pago */}
