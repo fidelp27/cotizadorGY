@@ -344,42 +344,88 @@ const PDFFile = () => {
 
   useEffect(() => {
     if (
+      tipo_alquiler === "comercial" &&
       iva === false &&
       (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes")
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
     ) {
       setComercialCost(
-        Math.ceil((average + expensas + alquiler) * (años * 12) * 0.06)
+        Math.ceil((average + expensas) * (años * 12) * 0.06 + alquiler)
       );
     } else if (
+      tipo_alquiler === "comercial" &&
       iva === true &&
+      años > 1 &&
       (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes")
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
     ) {
       setComercialCost(
-        Math.ceil((average + expensas + alquiler) * (años * 12) * 0.06 * 1.21)
+        Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21 + alquiler)
       );
-    } else if (iva === true && años === 1) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === true &&
+      años === 1 &&
+      promo !== "Garantía Especial" &&
+      promo !== "Garantía Especial Estudiantes" &&
+      promo !== "Mercado Libre Especial"
+    ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21));
-    } else if (iva === false && años === 1) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === true &&
+      años === 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
+      setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
+    } else if (tipo_alquiler === "comercial" && iva === false && años === 1) {
       setComercialCost(Math.ceil((average + expensas) * 1.3));
-    } else if (iva === false) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === false &&
+      años === 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
+      setComercialCost(Math.ceil((average + expensas) * 1.3));
+    } else if (tipo_alquiler === "comercial" && iva === false) {
       setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
-    } else if (iva === true) {
+    } else if (tipo_alquiler === "comercial" && iva === true) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21)
       );
     }
-  }, [alquiler, average, años, expensas, iva, promo]);
+  }, [alquiler, average, años, expensas, iva, promo, tipo_alquiler]);
 
   useEffect(() => {
     if (
       tipo_alquiler === "vivienda" &&
+      años === 1 &&
       (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes")
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
     ) {
-      setCost(Math.ceil((alquiler + expensas + alquiler) * (años * 12) * 0.06));
-    } else if (tipo_alquiler === "vivienda" && años === 1) {
+      setCost(Math.ceil((alquiler + expensas) * 1.3) + alquiler);
+    } else if (
+      tipo_alquiler === "vivienda" &&
+      años > 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
+      setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06) + alquiler);
+    } else if (
+      tipo_alquiler === "vivienda" &&
+      años === 1 &&
+      (promo !== "Garantía Especial" ||
+        promo !== "Garantía Especial Estudiantes" ||
+        promo !== "Mercado Libre Especial")
+    ) {
       setCost(Math.ceil((alquiler + expensas) * 1.3));
     } else if (tipo_alquiler === "vivienda") {
       setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06));

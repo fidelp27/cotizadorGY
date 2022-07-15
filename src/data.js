@@ -75,7 +75,7 @@ export const promociones = [
   {
     nombre: "Garantía Especial",
     unPago: 0.15,
-    tresPagos: 0,
+    tresPagos: 0.05,
     seisPagos: 0,
     transferencia: 0.05,
   },
@@ -102,6 +102,14 @@ export const promociones = [
   },
   {
     nombre: "Mercado Libre",
+    unPago: 0.05,
+    tresPagos: 0.05,
+    seisPagos: 0,
+    nuevePagos: 0,
+    docePagos: 0,
+  },
+  {
+    nombre: "Mercado Libre Especial",
     unPago: 0.05,
     tresPagos: 0.05,
     seisPagos: 0,

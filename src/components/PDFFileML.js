@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
   cuotaText: {
     fontSize: 10,
     marginBottom: 5,
+    marginRight: 4,
     fontWeight: 500,
     color: "rgb(70,70,70)",
   },
@@ -170,6 +171,7 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: 13,
     fontWeight: 1000,
+    marginLeft: 3,
     color: "rgb(40,40,40)",
   },
   amountSix: {
@@ -181,7 +183,6 @@ const styles = StyleSheet.create({
   cuotasText: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
     color: "rgb(70,70,70)",
   },
   cincoCuotas: {
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
     fontWeight: 500,
   },
   containerNota: {
-    marginTop: 30,
+    marginTop: 20,
     marginBottom: 20,
   },
   seisText: {
@@ -209,7 +210,7 @@ const styles = StyleSheet.create({
   },
   containerNotaChange: {
     width: "60%",
-    marginTop: 40,
+    marginTop: 30,
     lineHeight: 1.4,
   },
   notaChange: {
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     fontSize: 9,
     lineHeight: 1.2,
-    marginTop: 20,
+    marginTop: 15,
     fontWeight: 500,
     color: "rgb(70,70,70)",
   },
@@ -235,7 +236,7 @@ const styles = StyleSheet.create({
     width: "40%",
     position: "absolute",
     marginLeft: 45,
-    bottom: 60,
+    bottom: 40,
     lineHeight: 1.4,
     fontWeight: 500,
     color: "rgb(70,70,70)",
@@ -339,31 +340,89 @@ const PDFFileML = () => {
   }, [alquiler, average, porcentajeAjuste, tiempo, tipo_alquiler]);
 
   useEffect(() => {
-    if (iva === false && promo === "Garantía Especial") {
+    if (
+      tipo_alquiler === "comercial" &&
+      iva === false &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
       setComercialCost(
-        Math.ceil((average + expensas + alquiler) * (años * 12) * 0.06)
+        Math.ceil((average + expensas) * (años * 12) * 0.06 + alquiler)
       );
-    } else if (iva === true && promo === "Garantía Especial") {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === true &&
+      años > 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
       setComercialCost(
-        Math.ceil((average + expensas + alquiler) * (años * 12) * 0.06 * 1.21)
+        Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21 + alquiler)
       );
-    } else if (iva === true && años === 1) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === true &&
+      años === 1 &&
+      promo !== "Garantía Especial" &&
+      promo !== "Garantía Especial Estudiantes" &&
+      promo !== "Mercado Libre Especial"
+    ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21));
-    } else if (iva === false && años === 1) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === true &&
+      años === 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
+      setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
+    } else if (tipo_alquiler === "comercial" && iva === false && años === 1) {
       setComercialCost(Math.ceil((average + expensas) * 1.3));
-    } else if (iva === false) {
+    } else if (
+      tipo_alquiler === "comercial" &&
+      iva === false &&
+      años === 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
+      setComercialCost(Math.ceil((average + expensas) * 1.3));
+    } else if (tipo_alquiler === "comercial" && iva === false) {
       setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
-    } else if (iva === true) {
+    } else if (tipo_alquiler === "comercial" && iva === true) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21)
       );
     }
-  }, [alquiler, average, años, expensas, iva, promo]);
+  }, [alquiler, average, años, expensas, iva, promo, tipo_alquiler]);
 
   useEffect(() => {
-    if (tipo_alquiler === "vivienda" && promo === "Garantía Especial") {
+    if (
+      tipo_alquiler === "vivienda" &&
+      años === 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
+      setCost(Math.ceil((alquiler + expensas) * 1.3) + alquiler);
+    } else if (
+      tipo_alquiler === "vivienda" &&
+      años > 1 &&
+      (promo === "Garantía Especial" ||
+        promo === "Garantía Especial Estudiantes" ||
+        promo === "Mercado Libre Especial")
+    ) {
       setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06) + alquiler);
-    } else if (tipo_alquiler === "vivienda" && años === 1) {
+    } else if (
+      tipo_alquiler === "vivienda" &&
+      años === 1 &&
+      (promo !== "Garantía Especial" ||
+        promo !== "Garantía Especial Estudiantes" ||
+        promo !== "Mercado Libre Especial")
+    ) {
       setCost(Math.ceil((alquiler + expensas) * 1.3));
     } else if (tipo_alquiler === "vivienda") {
       setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06));
@@ -494,7 +553,7 @@ const PDFFileML = () => {
                           <Text style={styles.cuotaText}>
                             en 3 cuotas sin interés de
                           </Text>
-                          <Text>
+                          <Text style={styles.seisText}>
                             $
                             {tipo_alquiler === "vivienda"
                               ? Math.ceil(
@@ -570,7 +629,7 @@ const PDFFileML = () => {
 
                         <View style={styles.cuotasText}>
                           <Text style={styles.cuotaText}>
-                            6 cuotas sin interés
+                            6 cuotas fijas sin interés
                           </Text>
 
                           <Text style={styles.seisText}>
@@ -643,7 +702,7 @@ const PDFFileML = () => {
 
                         <View style={styles.cuotasText}>
                           <Text style={styles.cuotaText}>
-                            9 cuotas con interés
+                            9 cuotas fijas con interés
                           </Text>
 
                           <Text style={styles.seisText}>
@@ -689,7 +748,7 @@ const PDFFileML = () => {
 
                         <View style={styles.cuotasText}>
                           <Text style={styles.cuotaText}>
-                            12 cuotas con interés
+                            12 cuotas fijas con interés
                           </Text>
 
                           <Text style={styles.seisText}>
