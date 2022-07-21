@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     width: "100%",
     display: "flex",
     alignItems: "center",
-    marginTop: 10,
   },
   image: {
     width: 90,
@@ -65,7 +64,6 @@ const styles = StyleSheet.create({
   },
   containerDate: {
     display: "flex",
-    marginTop: 10,
   },
   date: {
     fontSize: 12,
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     display: "flex",
-    marginTop: 40,
+    marginTop: 30,
   },
   title: {
     fontSize: 15,
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginBottom: 20,
+    marginBottom: 15,
   },
 
   text: {
@@ -102,11 +100,11 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 15,
+    marginBottom: 10,
   },
   costo: {
     fontSize: 11,
-    marginBottom: 20,
+    marginBottom: 15,
     fontWeight: 500,
     color: "rgb(70,70,70)",
   },
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
     color: "rgb(40,40,40)",
   },
   opciones: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 1000,
     marginBottom: 15,
     color: "rgb(30,53,121)",
@@ -136,15 +134,22 @@ const styles = StyleSheet.create({
     borderBottom: "1px solid #bebebe",
   },
   percentage: {
-    fontSize: 14,
+    fontSize: 12,
     marginBottom: 1,
     fontWeight: 800,
     color: "rgb(70,70,70)",
   },
   cuotaText: {
-    fontSize: 10,
+    fontSize: 11,
     marginBottom: 5,
     fontWeight: 500,
+    color: "rgb(70,70,70)",
+  },
+
+  cuotaTextMP: {
+    fontSize: 11,
+    marginBottom: 5,
+    fontWeight: 700,
     color: "rgb(70,70,70)",
   },
   containerAmount: {
@@ -185,8 +190,17 @@ const styles = StyleSheet.create({
   cuotasText: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
     color: "rgb(70,70,70)",
-    marginRight: 30,
+  },
+  cuotasTextThree: {
+    display: "flex",
+    flexDirection: "row",
+    color: "rgb(70,70,70)",
+  },
+  cuotasTextMP: {
+    display: "flex",
+    flexDirection: "row",
   },
   cincoCuotas: {
     display: "flex",
@@ -198,13 +212,14 @@ const styles = StyleSheet.create({
     fontWeight: 500,
   },
   containerNota: {
-    marginTop: 40,
+    marginTop: 30,
     marginBottom: 20,
   },
   seisText: {
     fontSize: 10,
     fontWeight: 500,
     color: "rgb(70,70,70)",
+    marginLeft: 5,
   },
   nota: {
     fontSize: 16,
@@ -212,9 +227,12 @@ const styles = StyleSheet.create({
     color: "rgb(30,53,121)",
   },
   containerNotaChange: {
-    width: "60%",
-    marginTop: 40,
+    width: "50%",
+    marginTop: 20,
     lineHeight: 1.4,
+    position: "absolute",
+    bottom: 90,
+    left: 45,
   },
   notaChange: {
     fontSize: 7,
@@ -226,7 +244,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     fontSize: 9,
     lineHeight: 1.2,
-    marginTop: 20,
+    marginTop: 10,
     fontWeight: 500,
     color: "rgb(70,70,70)",
   },
@@ -239,7 +257,7 @@ const styles = StyleSheet.create({
     width: "40%",
     position: "absolute",
     marginLeft: 45,
-    bottom: 60,
+    bottom: 35,
     lineHeight: 1.4,
     fontWeight: 500,
     color: "rgb(70,70,70)",
@@ -279,6 +297,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     width: "65%",
+  },
+  mercadopago: {
+    marginTop: 10,
   },
 });
 
@@ -562,7 +583,7 @@ const PDFFile = () => {
                           <Text style={styles.percentage}>
                             {elem.tresPagos * 100}% OFF
                           </Text>
-                          <View style={styles.cuotasText}>
+                          <View style={styles.cuotasTextThree}>
                             <Text style={styles.cuotaText}>
                               en 3 cuotas sin interés de:
                             </Text>
@@ -647,7 +668,7 @@ const PDFFile = () => {
                               6 cuotas sin interés
                             </Text>
                             <Text style={styles.seisText}>
-                              con primer cuota:
+                              con primera cuota:
                             </Text>
                           </View>
                         </View>
@@ -710,7 +731,105 @@ const PDFFile = () => {
                         </View> */}
                       </View>
                     )}
+                    <View style={styles.mercadopago}>
+                      <Text style={styles.opciones}>Aboná con MercadoPago</Text>
 
+                      {/* 9 cuotas con interés */}
+                      <View style={styles.boxPrice}>
+                        <View style={styles.pagos}>
+                          <Text style={styles.percentage}>
+                            {elem.nuevePagos * 100}% OFF
+                            {/* {tipo_alquiler === "vivienda"
+                              ? Math.ceil(
+                                  cost * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")
+                              : Math.ceil(
+                                  comercialCost * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")} */}
+                          </Text>
+
+                          <View style={styles.cuotasTextMP}>
+                            <Text style={styles.cuotaTextMP}>
+                              9 cuotas fijas:
+                            </Text>
+
+                            <Text style={styles.seisText}>
+                              $
+                              {tipo_alquiler === "vivienda"
+                                ? Math.ceil(
+                                    (cost * 1.2 * (1 - elem.seisPagos)) / 9
+                                  ).toLocaleString("es-AR")
+                                : Math.ceil(
+                                    (comercialCost *
+                                      1.2 *
+                                      (1 - elem.seisPagos)) /
+                                      9
+                                  ).toLocaleString("es-AR")}
+                            </Text>
+                          </View>
+                        </View>
+
+                        <View style={styles.containerAmountSix}>
+                          <Text style={styles.amount}>
+                            $
+                            {tipo_alquiler === "vivienda"
+                              ? Math.ceil(
+                                  cost * 1.2 * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")
+                              : Math.ceil(
+                                  comercialCost * 1.2 * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")}
+                          </Text>
+                        </View>
+                      </View>
+                      <View style={styles.boxPrice}>
+                        <View style={styles.pagos}>
+                          <Text style={styles.percentage}>
+                            {elem.nuevePagos * 100}% OFF
+                            {/* {tipo_alquiler === "vivienda"
+                              ? Math.ceil(
+                                  cost * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")
+                              : Math.ceil(
+                                  comercialCost * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")} */}
+                          </Text>
+                          {/* 12 cuotas con interés */}
+                          <View style={styles.cuotasTextMP}>
+                            <Text style={styles.cuotaTextMP}>
+                              12 cuotas fijas:
+                            </Text>
+
+                            <Text style={styles.seisText}>
+                              $
+                              {tipo_alquiler === "vivienda"
+                                ? Math.ceil(
+                                    (cost * 1.2 * (1 - elem.seisPagos)) / 12
+                                  ).toLocaleString("es-AR")
+                                : Math.ceil(
+                                    (comercialCost *
+                                      1.2 *
+                                      (1 - elem.seisPagos)) /
+                                      12
+                                  ).toLocaleString("es-AR")}
+                            </Text>
+                          </View>
+                        </View>
+
+                        <View style={styles.containerAmountSix}>
+                          <Text style={styles.amount}>
+                            $
+                            {tipo_alquiler === "vivienda"
+                              ? Math.ceil(
+                                  cost * 1.2 * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")
+                              : Math.ceil(
+                                  comercialCost * 1.2 * (1 - elem.seisPagos)
+                                ).toLocaleString("es-AR")}
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
                     <View style={styles.containerNota}>
                       <Text style={styles.nota}>Estás a un "Sí, acepto"</Text>
                       <Text style={styles.nota}>
@@ -743,7 +862,7 @@ const PDFFile = () => {
                         que se realicen los respectivos ajustes.
                       </Text>
                     </View>
-                    <View style={styles.infoGeneral}>
+                    {/* <View style={styles.infoGeneral}>
                       <Text style={styles.phone}>0810-220-2202</Text>
                       <Text style={styles.address}>
                         Av. Álvarez Thomas 198 2°Q, C1427 CABA
@@ -771,7 +890,7 @@ const PDFFile = () => {
                           style={styles.rrssYT}
                         />
                       </View>
-                    </View>
+                    </View> */}
                     <View style={styles.containerFinalImage}>
                       <Image
                         src="https://i.imgur.com/Y0JVoOl.png"

@@ -17,6 +17,8 @@ export const promociones = [
     tresPagos: 0.05,
     seisPagos: 0,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Renovación",
@@ -24,6 +26,8 @@ export const promociones = [
     tresPagos: 0.2,
     seisPagos: 0.2,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Referido inmobiliaria",
@@ -31,12 +35,16 @@ export const promociones = [
     tresPagos: 0.1,
     seisPagos: 0.05,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Garantía Anticipada",
     unPago: 0.3,
     tresPagos: 0.2,
     seisPagos: "",
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Colectividades",
@@ -44,6 +52,8 @@ export const promociones = [
     tresPagos: 0.15,
     seisPagos: "",
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Embajadas y Consulados",
@@ -51,12 +61,16 @@ export const promociones = [
     tresPagos: 0.15,
     seisPagos: "",
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Convenios Estudiantes",
     unPago: 0.2,
     tresPagos: 0.15,
     seisPagos: "",
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Renovación FINAER",
@@ -64,6 +78,8 @@ export const promociones = [
     tresPagos: 0.15,
     seisPagos: 0.1,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "RESPALDAR || PREMIUM",
@@ -71,6 +87,8 @@ export const promociones = [
     tresPagos: 0.15,
     seisPagos: 0.1,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Garantía Especial",
@@ -78,6 +96,8 @@ export const promociones = [
     tresPagos: 0.05,
     seisPagos: 0,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Garantía Especial Estudiantes",
@@ -85,6 +105,8 @@ export const promociones = [
     tresPagos: 0.15,
     seisPagos: 0,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Globant",
@@ -92,6 +114,8 @@ export const promociones = [
     tresPagos: 0.1,
     seisPagos: 0.05,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Recupero",
@@ -99,6 +123,8 @@ export const promociones = [
     tresPagos: 0.05,
     seisPagos: 0,
     transferencia: 0.05,
+    nuevePagos: 0,
+    docePagos: 0,
   },
   {
     nombre: "Mercado Pago",
