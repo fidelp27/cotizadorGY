@@ -120,7 +120,7 @@ export const promociones = [
   {
     nombre: "Recupero",
     unPago: 0.3,
-    tresPagos: 0.05,
+    tresPagos: 0.15,
     seisPagos: 0,
     transferencia: 0.05,
     nuevePagos: 0,
@@ -201,6 +201,11 @@ export const asesores = [
   {
     nombre: "Valentina Aguilera",
     email: "valentina@garantiaya.com.ar",
+    cargo: "Asesora Comercial",
+  },
+  {
+    nombre: "Zahira Caffarena",
+    email: "zahira@garantiaya.com.ar",
     cargo: "Asesora Comercial",
   },
 ];

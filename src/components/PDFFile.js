@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   cuotaText: {
     fontSize: 11,
     marginBottom: 5,
-    fontWeight: 500,
+    fontWeight: 700,
     color: "rgb(70,70,70)",
   },
 
@@ -584,9 +584,7 @@ const PDFFile = () => {
                             {elem.tresPagos * 100}% OFF
                           </Text>
                           <View style={styles.cuotasTextThree}>
-                            <Text style={styles.cuotaText}>
-                              en 3 cuotas sin interés de:
-                            </Text>
+                            <Text style={styles.cuotaText}>en 3 cuotas:</Text>
                             <Text style={styles.seisText}>
                               $
                               {tipo_alquiler === "vivienda"
@@ -664,9 +662,7 @@ const PDFFile = () => {
                           </Text>
 
                           <View style={styles.cuotasText}>
-                            <Text style={styles.cuotaText}>
-                              6 cuotas sin interés
-                            </Text>
+                            <Text style={styles.cuotaText}>6 cuotas</Text>
                             <Text style={styles.seisText}>
                               con primera cuota:
                             </Text>
@@ -737,16 +733,18 @@ const PDFFile = () => {
                       {/* 9 cuotas con interés */}
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
-                          <Text style={styles.percentage}>
-                            {elem.nuevePagos * 100}% OFF
-                            {/* {tipo_alquiler === "vivienda"
+                          {elem.nuevePagos > 0 && (
+                            <Text style={styles.percentage}>
+                              {elem.nuevePagos * 100}% OFF
+                              {/* {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   cost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")
                               : Math.ceil(
                                   comercialCost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")} */}
-                          </Text>
+                            </Text>
+                          )}
 
                           <View style={styles.cuotasTextMP}>
                             <Text style={styles.cuotaTextMP}>
@@ -784,16 +782,18 @@ const PDFFile = () => {
                       </View>
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
-                          <Text style={styles.percentage}>
-                            {elem.nuevePagos * 100}% OFF
-                            {/* {tipo_alquiler === "vivienda"
+                          {elem.docePagos > 0 && (
+                            <Text style={styles.percentage}>
+                              {elem.docePagos * 100}% OFF
+                              {/* {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   cost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")
                               : Math.ceil(
                                   comercialCost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")} */}
-                          </Text>
+                            </Text>
+                          )}
                           {/* 12 cuotas con interés */}
                           <View style={styles.cuotasTextMP}>
                             <Text style={styles.cuotaTextMP}>
