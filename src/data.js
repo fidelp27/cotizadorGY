@@ -1,18 +1,18 @@
-export const tipoAlquiler = ["vivienda", "comercial"];
+export const tipoAlquiler = ['vivienda', 'comercial'];
 
 export const tipoAjuste = [
   {
-    nombre: "semestral",
+    nombre: 'semestral',
     meses: 6,
   },
-  { nombre: "anual", meses: 12 },
-  { nombre: "trimestral", meses: 3 },
-  { nombre: "cuatrimestral", meses: 4 },
+  { nombre: 'anual', meses: 12 },
+  { nombre: 'trimestral', meses: 3 },
+  { nombre: 'cuatrimestral', meses: 4 },
 ];
 
 export const promociones = [
   {
-    nombre: "Promo del mes",
+    nombre: 'Promo del mes',
     unPago: 0.15,
     tresPagos: 0.05,
     seisPagos: 0,
@@ -21,7 +21,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Renovación",
+    nombre: 'Renovación',
     unPago: 0.2,
     tresPagos: 0.2,
     seisPagos: 0.2,
@@ -30,7 +30,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Referido inmobiliaria",
+    nombre: 'Referido inmobiliaria',
     unPago: 0.2,
     tresPagos: 0.1,
     seisPagos: 0.05,
@@ -39,41 +39,41 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Garantía Anticipada",
+    nombre: 'Garantía Anticipada',
     unPago: 0.3,
     tresPagos: 0.2,
-    seisPagos: "",
+    seisPagos: '',
     nuevePagos: 0,
     docePagos: 0,
   },
   {
-    nombre: "Colectividades",
+    nombre: 'Colectividades',
     unPago: 0.2,
     tresPagos: 0.15,
-    seisPagos: "",
+    seisPagos: '',
     transferencia: 0.05,
     nuevePagos: 0,
     docePagos: 0,
   },
   {
-    nombre: "Embajadas y Consulados",
+    nombre: 'Embajadas y Consulados',
     unPago: 0.2,
     tresPagos: 0.15,
-    seisPagos: "",
+    seisPagos: '',
     transferencia: 0.05,
     nuevePagos: 0,
     docePagos: 0,
   },
   {
-    nombre: "Convenios Estudiantes",
+    nombre: 'Convenios Estudiantes',
     unPago: 0.2,
     tresPagos: 0.15,
-    seisPagos: "",
+    seisPagos: '',
     nuevePagos: 0,
     docePagos: 0,
   },
   {
-    nombre: "Renovación FINAER",
+    nombre: 'Renovación FINAER',
     unPago: 0.25,
     tresPagos: 0.15,
     seisPagos: 0.1,
@@ -82,7 +82,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "RESPALDAR || PREMIUM",
+    nombre: 'RESPALDAR || PREMIUM',
     unPago: 0.3,
     tresPagos: 0.15,
     seisPagos: 0.1,
@@ -91,7 +91,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Garantía Especial",
+    nombre: 'Garantía Especial',
     unPago: 0.15,
     tresPagos: 0.05,
     seisPagos: 0,
@@ -100,7 +100,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Garantía Especial Estudiantes",
+    nombre: 'Garantía Especial Estudiantes',
     unPago: 0.2,
     tresPagos: 0.15,
     seisPagos: 0,
@@ -109,7 +109,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Globant",
+    nombre: 'Globant',
     unPago: 0.25,
     tresPagos: 0.1,
     seisPagos: 0.05,
@@ -118,7 +118,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Recupero",
+    nombre: 'Recupero',
     unPago: 0.3,
     tresPagos: 0.15,
     seisPagos: 0,
@@ -127,7 +127,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Mercado Pago",
+    nombre: 'Mercado Pago',
     unPago: 0.05,
     tresPagos: 0.05,
     seisPagos: 0,
@@ -135,7 +135,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Mercado Pago Especial",
+    nombre: 'Mercado Pago Especial',
     unPago: 0.05,
     tresPagos: 0.05,
     seisPagos: 0,
@@ -143,7 +143,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: "Mercado Pago Renovación",
+    nombre: 'Mercado Pago Renovación',
     unPago: 0.2,
     tresPagos: 0.2,
     seisPagos: 0.2,
@@ -154,58 +154,68 @@ export const promociones = [
 
 export const asesores = [
   {
-    nombre: "Ana Carolina Jara Pernia",
-    email: "ana@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Ana Carolina Jara Pernia',
+    email: 'ana@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Angeles Torres",
-    email: "angeles@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Angeles Torres',
+    email: 'angeles@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Federico Peyras",
-    email: "federico@garantiaya.com.ar",
-    cargo: "Asesor Comercial",
+    nombre: 'Federico Peyras',
+    email: 'federico@garantiaya.com.ar',
+    cargo: 'Asesor Comercial',
   },
   {
-    nombre: "Dairalys Carrero",
-    email: "daira@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Dairalys Carrero',
+    email: 'daira@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Giuliana Ramirez",
-    email: "giuliana@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Giuliana Ramirez',
+    email: 'giuliana@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Josenna Di Lorenzo",
-    email: "josenna@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Josenna Di Lorenzo',
+    email: 'josenna@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Marialis Fuenmayor",
-    email: "marialis@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Marialis Fuenmayor',
+    email: 'marialis@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Paz Ramos",
-    email: "paz@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Paz Ramos',
+    email: 'paz@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Nelson Sambrano",
-    email: "nelson@garantiaya.com.ar",
-    cargo: "Asesor Comercial",
+    nombre: 'Nelson Sambrano',
+    email: 'nelson@garantiaya.com.ar',
+    cargo: 'Asesor Comercial',
   },
   {
-    nombre: "Valentina Aguilera",
-    email: "valentina@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Valentina Aguilera',
+    email: 'valentina@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
   },
   {
-    nombre: "Zahira Caffarena",
-    email: "zahira@garantiaya.com.ar",
-    cargo: "Asesora Comercial",
+    nombre: 'Zahira Caffarena',
+    email: 'zahira@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Anabella Maggio',
+    email: 'anabella@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Gabriel Silvera',
+    email: 'g.silvera@garantiaya.com.ar',
+    cargo: 'Asesor Comercial',
   },
 ];
