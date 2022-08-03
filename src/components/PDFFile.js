@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { asesores, promociones } from "../data";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { asesores, promociones } from '../data';
+import { useNavigate } from 'react-router-dom';
 
 import {
   Page,
@@ -12,79 +12,79 @@ import {
   Font,
   Image,
   PDFViewer,
-} from "@react-pdf/renderer";
+} from '@react-pdf/renderer';
 
 Font.register({
-  family: "Raleway",
+  family: 'Raleway',
   fonts: [
     {
-      src: "http://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCPNLA3JC9c.ttf",
+      src: 'http://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCPNLA3JC9c.ttf',
     },
     {
-      src: "http://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCPNLA3JC9c.ttf",
-      fontWeight: "bold",
+      src: 'http://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCPNLA3JC9c.ttf',
+      fontWeight: 'bold',
     },
     {
-      src: "http://fonts.gstatic.com/s/raleway/v27/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4TbMPrQVIT9c2c8.ttf",
-      fontWeight: "light",
-      fontStyle: "italic",
+      src: 'http://fonts.gstatic.com/s/raleway/v27/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4TbMPrQVIT9c2c8.ttf',
+      fontWeight: 'light',
+      fontStyle: 'italic',
     },
   ],
 });
 
 const styles = StyleSheet.create({
   pdfViewer: {
-    height: "90vh",
-    width: "90%",
-    position: "absolute",
-    left: "4%",
-    top: "7%",
+    height: '90vh',
+    width: '90%',
+    position: 'absolute',
+    left: '4%',
+    top: '7%',
   },
   container: {
-    height: "100vh",
-    width: "100%",
+    height: '100vh',
+    width: '100%',
   },
 
   body: {
     paddingTop: 35,
     paddingBottom: 65,
     paddingHorizontal: 46,
-    display: "flex",
-    flexDirection: "column",
-    fontFamily: "Raleway",
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: 'Raleway',
   },
   containerimage: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
   },
   image: {
     width: 90,
     height: 50,
   },
   containerDate: {
-    display: "flex",
+    display: 'flex',
   },
   date: {
     fontSize: 12,
     marginRight: 10,
   },
   titleContainer: {
-    display: "flex",
+    display: 'flex',
     marginTop: 30,
   },
   title: {
     fontSize: 15,
     marginBottom: 15,
     fontWeight: 1000,
-    color: "rgb(30,53,121)",
+    color: 'rgb(30,53,121)',
   },
 
   montos: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     marginBottom: 15,
   },
 
@@ -92,121 +92,121 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginRight: 40,
     lineHeight: 2.3,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
 
     fontWeight: 500,
   },
   costocontainer: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "row",
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: 10,
   },
   costo: {
     fontSize: 11,
     marginBottom: 15,
     fontWeight: 500,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
   },
   price: {
     fontSize: 14,
     fontWeight: 1000,
     marginLeft: 2,
     marginBottom: 20,
-    color: "rgb(40,40,40)",
+    color: 'rgb(40,40,40)',
   },
   opciones: {
     fontSize: 12,
     fontWeight: 1000,
     marginBottom: 15,
-    color: "rgb(30,53,121)",
+    color: 'rgb(30,53,121)',
   },
 
   boxPrice: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     margin: 5,
   },
   pagos: {
     width: 400,
     fontSize: 12,
-    borderBottom: "1px solid #bebebe",
+    borderBottom: '1px solid #bebebe',
   },
   percentage: {
     fontSize: 12,
     marginBottom: 1,
     fontWeight: 800,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
   },
   cuotaText: {
     fontSize: 11,
     marginBottom: 5,
     fontWeight: 700,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
   },
 
   cuotaTextMP: {
     fontSize: 11,
     marginBottom: 5,
     fontWeight: 700,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
   },
   containerAmount: {
-    display: "flex",
-    position: "absolute",
+    display: 'flex',
+    position: 'absolute',
     top: 23,
     right: 85,
-    alignItems: "bottom",
+    alignItems: 'bottom',
     fontWeight: 1000,
   },
   containerAmountThree: {
-    display: "flex",
-    position: "absolute",
+    display: 'flex',
+    position: 'absolute',
     top: 20,
     right: 85,
-    alignItems: "bottom",
+    alignItems: 'bottom',
     fontWeight: 1000,
   },
   containerAmountSix: {
-    display: "flex",
-    position: "absolute",
+    display: 'flex',
+    position: 'absolute',
     top: 13,
     right: 85,
-    alignItems: "bottom",
+    alignItems: 'bottom',
     fontWeight: 1000,
   },
   amount: {
     fontSize: 13,
     fontWeight: 1000,
-    color: "rgb(40,40,40)",
+    color: 'rgb(40,40,40)',
   },
   amountSix: {
     fontSize: 14,
     fontWeight: 1000,
     marginLeft: 85,
-    color: "rgb(40,40,40)",
+    color: 'rgb(40,40,40)',
   },
   cuotasText: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    color: "rgb(70,70,70)",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    color: 'rgb(70,70,70)',
   },
   cuotasTextThree: {
-    display: "flex",
-    flexDirection: "row",
-    color: "rgb(70,70,70)",
+    display: 'flex',
+    flexDirection: 'row',
+    color: 'rgb(70,70,70)',
   },
   cuotasTextMP: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
   },
   cincoCuotas: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     fontSize: 10,
-    position: "absolute",
+    position: 'absolute',
     top: 40,
     right: 85,
     fontWeight: 500,
@@ -218,19 +218,19 @@ const styles = StyleSheet.create({
   seisText: {
     fontSize: 10,
     fontWeight: 500,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
     marginLeft: 5,
   },
   nota: {
     fontSize: 16,
     fontWeight: 1000,
-    color: "rgb(30,53,121)",
+    color: 'rgb(30,53,121)',
   },
   containerNotaChange: {
-    width: "50%",
+    width: '50%',
     marginTop: 20,
     lineHeight: 1.4,
-    position: "absolute",
+    position: 'absolute',
     bottom: 90,
     left: 45,
   },
@@ -239,33 +239,33 @@ const styles = StyleSheet.create({
     fontWeight: 500,
   },
   asesor: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
     fontSize: 9,
     lineHeight: 1.2,
     marginTop: 10,
     fontWeight: 500,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
   },
   name: {
     fontSize: 10,
     fontWeight: 600,
-    color: "black",
+    color: 'black',
   },
   infoGeneral: {
-    width: "40%",
-    position: "absolute",
+    width: '40%',
+    position: 'absolute',
     marginLeft: 45,
     bottom: 35,
     lineHeight: 1.4,
     fontWeight: 500,
-    color: "rgb(70,70,70)",
+    color: 'rgb(70,70,70)',
   },
   phone: {
     fontSize: 10,
     fontWeight: 1000,
-    color: "rgb(212,15,20)",
+    color: 'rgb(212,15,20)',
   },
   address: {
     fontSize: 9,
@@ -273,18 +273,18 @@ const styles = StyleSheet.create({
   uri: {
     fontSize: 9,
     fontWeight: 1000,
-    textDecoration: "none",
-    color: "rgb(40,40,40)",
+    textDecoration: 'none',
+    color: 'rgb(40,40,40)',
   },
   imagesRRSS: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "row",
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   rrss: {
     width: 15,
     height: 15,
-    color: "black",
+    color: 'black',
     marginRight: 1,
   },
   rrssYT: {
@@ -293,10 +293,10 @@ const styles = StyleSheet.create({
     marginLeft: 3,
   },
   containerFinalImage: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 0,
     right: 0,
-    width: "65%",
+    width: '65%',
   },
   mercadopago: {
     marginTop: 10,
@@ -304,19 +304,19 @@ const styles = StyleSheet.create({
 });
 
 const PDFFile = () => {
-  const [cost, setCost] = useState("");
-  const [comercialCost, setComercialCost] = useState("");
-  const [tiempo, setTiempo] = useState("");
-  const [average, setAverage] = useState("");
+  const [cost, setCost] = useState('');
+  const [comercialCost, setComercialCost] = useState('');
+  const [tiempo, setTiempo] = useState('');
+  const [average, setAverage] = useState('');
   const navigate = useNavigate();
 
   const volver = () => {
-    return navigate("/");
+    return navigate('/');
   };
 
-  const datos = localStorage.getItem("datos")
-    ? JSON.parse(localStorage.getItem("datos"))
-    : "";
+  const datos = localStorage.getItem('datos')
+    ? JSON.parse(localStorage.getItem('datos'))
+    : '';
 
   const {
     alquiler,
@@ -338,21 +338,21 @@ const PDFFile = () => {
   const hora = new Date().toLocaleDateString();
 
   useEffect(() => {
-    if (tipo_alquiler === "comercial") {
-      if (tipoAjuste === "semestral") {
+    if (tipo_alquiler === 'comercial') {
+      if (tipoAjuste === 'semestral') {
         setTiempo((años * 12) / 6);
-      } else if (tipoAjuste === "trimestral") {
+      } else if (tipoAjuste === 'trimestral') {
         setTiempo((años * 12) / 3);
-      } else if (tipoAjuste === "cuatrimestral") {
+      } else if (tipoAjuste === 'cuatrimestral') {
         setTiempo((años * 12) / 4);
-      } else if (tipoAjuste === "anual") {
+      } else if (tipoAjuste === 'anual') {
         setTiempo((años * 12) / 12);
       }
     }
   }, [años, tipoAjuste, tipo_alquiler]);
 
   useEffect(() => {
-    if (tipo_alquiler === "comercial") {
+    if (tipo_alquiler === 'comercial') {
       let arrayAjustes = [];
 
       for (let i = 0; i < tiempo - 1; i++) {
@@ -365,66 +365,66 @@ const PDFFile = () => {
 
   useEffect(() => {
     if (
-      tipo_alquiler === "comercial" &&
+      tipo_alquiler === 'comercial' &&
       iva === false &&
       años > 1 &&
-      (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+      (promo === 'Garantía Especial' ||
+        promo === 'Garantía Especial Estudiantes' ||
+        promo === 'Mercado Libre Especial')
     ) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 + alquiler)
       );
     } else if (
-      tipo_alquiler === "comercial" &&
+      tipo_alquiler === 'comercial' &&
       iva === true &&
       años > 1 &&
-      (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+      (promo === 'Garantía Especial' ||
+        promo === 'Garantía Especial Estudiantes' ||
+        promo === 'Mercado Libre Especial')
     ) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21 + alquiler)
       );
     } else if (
-      tipo_alquiler === "comercial" &&
+      tipo_alquiler === 'comercial' &&
       iva === true &&
       años === 1 &&
-      promo !== "Garantía Especial" &&
-      promo !== "Garantía Especial Estudiantes" &&
-      promo !== "Mercado Libre Especial"
+      promo !== 'Garantía Especial' &&
+      promo !== 'Garantía Especial Estudiantes' &&
+      promo !== 'Mercado Libre Especial'
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21));
     } else if (
-      tipo_alquiler === "comercial" &&
+      tipo_alquiler === 'comercial' &&
       iva === true &&
       años === 1 &&
-      (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+      (promo === 'Garantía Especial' ||
+        promo === 'Garantía Especial Estudiantes' ||
+        promo === 'Mercado Libre Especial')
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
     } else if (
-      tipo_alquiler === "comercial" &&
+      tipo_alquiler === 'comercial' &&
       iva === false &&
       años === 1 &&
-      promo !== "Garantía Especial" &&
-      promo !== "Garantía Especial Estudiantes" &&
-      promo !== "Mercado Libre Especial"
+      promo !== 'Garantía Especial' &&
+      promo !== 'Garantía Especial Estudiantes' &&
+      promo !== 'Mercado Libre Especial'
     ) {
       setComercialCost(Math.ceil((average + expensas) * 1.3));
     } else if (
-      tipo_alquiler === "comercial" &&
+      tipo_alquiler === 'comercial' &&
       iva === false &&
       años === 1 &&
-      (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+      (promo === 'Garantía Especial' ||
+        promo === 'Garantía Especial Estudiantes' ||
+        promo === 'Mercado Libre Especial')
     ) {
       setComercialCost(Math.ceil(average + expensas + alquiler * 1.3));
-    } else if (tipo_alquiler === "comercial" && iva === false) {
+    } else if (tipo_alquiler === 'comercial' && iva === false) {
       setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
-    } else if (tipo_alquiler === "comercial" && iva === true) {
+    } else if (tipo_alquiler === 'comercial' && iva === true) {
       setComercialCost(
         Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21)
       );
@@ -433,30 +433,33 @@ const PDFFile = () => {
 
   useEffect(() => {
     if (
-      tipo_alquiler === "vivienda" &&
+      tipo_alquiler === 'vivienda' &&
       años === 1 &&
-      (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+      (promo === 'Garantía Especial' ||
+        promo === 'Garantía Especial Estudiantes' ||
+        promo === 'Globant' ||
+        promo === 'Mercado Libre Especial')
     ) {
       setCost(Math.ceil((alquiler + expensas) * 1.3) + alquiler);
     } else if (
-      tipo_alquiler === "vivienda" &&
+      tipo_alquiler === 'vivienda' &&
       años > 1 &&
-      (promo === "Garantía Especial" ||
-        promo === "Garantía Especial Estudiantes" ||
-        promo === "Mercado Libre Especial")
+      (promo === 'Garantía Especial' ||
+        promo === 'Garantía Especial Estudiantes' ||
+        promo === 'Mercado Libre Especial' ||
+        promo === 'Globant')
     ) {
       setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06) + alquiler);
     } else if (
-      tipo_alquiler === "vivienda" &&
+      tipo_alquiler === 'vivienda' &&
       años === 1 &&
-      (promo !== "Garantía Especial" ||
-        promo !== "Garantía Especial Estudiantes" ||
-        promo !== "Mercado Libre Especial")
+      (promo !== 'Garantía Especial' ||
+        promo !== 'Garantía Especial Estudiantes' ||
+        promo !== 'Mercado Libre Especial' ||
+        promo !== 'Globant')
     ) {
       setCost(Math.ceil((alquiler + expensas) * 1.3));
-    } else if (tipo_alquiler === "vivienda") {
+    } else if (tipo_alquiler === 'vivienda') {
       setCost(Math.ceil((alquiler + expensas) * (años * 12) * 0.06));
     }
   }, [tipo_alquiler, alquiler, expensas, años, promo]);
@@ -466,14 +469,14 @@ const PDFFile = () => {
       <button
         onClick={() => volver()}
         style={{
-          width: "100%",
-          backgroundColor: "rgba(255, 0, 0, 0.278)",
-          border: "none",
-          borderRadius: "5px",
-          padding: "10px",
-          letterSpacing: "2px",
-          cursor: "pointer",
-          color: "white",
+          width: '100%',
+          backgroundColor: 'rgba(255, 0, 0, 0.278)',
+          border: 'none',
+          borderRadius: '5px',
+          padding: '10px',
+          letterSpacing: '2px',
+          cursor: 'pointer',
+          color: 'white',
         }}
       >
         Nueva cotización
@@ -497,16 +500,16 @@ const PDFFile = () => {
               <Text style={styles.text}>Fecha: {hora} </Text>
 
               <Text style={styles.text}>
-                Alquiler: ${alquiler.toLocaleString("es-AR")}
+                Alquiler: ${alquiler.toLocaleString('es-AR')}
               </Text>
               <Text style={styles.text}>
-                Expensas: ${expensas.toLocaleString("es-AR")}
+                Expensas: ${expensas.toLocaleString('es-AR')}
               </Text>
               <Text style={styles.text}>
-                Tiempo: {años > 1 ? años + " años" : años + " año"}
+                Tiempo: {años > 1 ? años + ' años' : años + ' año'}
               </Text>
 
-              {tipo_alquiler === "comercial" && (
+              {tipo_alquiler === 'comercial' && (
                 <>
                   <Text style={styles.text}>
                     Ajuste: {porcentajeAjuste}% {tipoAjuste}
@@ -521,9 +524,9 @@ const PDFFile = () => {
               </Text>
               <Text style={styles.price}>
                 $
-                {tipo_alquiler === "vivienda"
-                  ? cost.toLocaleString("es-AR")
-                  : comercialCost.toLocaleString("es-AR")}
+                {tipo_alquiler === 'vivienda'
+                  ? cost.toLocaleString('es-AR')
+                  : comercialCost.toLocaleString('es-AR')}
               </Text>
             </View>
             <Text style={styles.opciones}>Formas de pago y financiación</Text>
@@ -543,13 +546,13 @@ const PDFFile = () => {
                         <View style={styles.containerAmount}>
                           <Text style={styles.amount}>
                             $
-                            {tipo_alquiler === "vivienda"
+                            {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
                                   cost * (1 - elem.unPago)
-                                ).toLocaleString("es-AR")
+                                ).toLocaleString('es-AR')
                               : Math.ceil(
                                   comercialCost * (1 - elem.unPago)
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString('es-AR')}
                           </Text>
                           {/* 1 pago Ahorro
                         <View style={styles.ahorroContainer}>
@@ -587,26 +590,26 @@ const PDFFile = () => {
                             <Text style={styles.cuotaText}>en 3 cuotas:</Text>
                             <Text style={styles.seisText}>
                               $
-                              {tipo_alquiler === "vivienda"
+                              {tipo_alquiler === 'vivienda'
                                 ? Math.ceil(
                                     (cost * (1 - elem.tresPagos)) / 3
-                                  ).toLocaleString("es-AR")
+                                  ).toLocaleString('es-AR')
                                 : Math.ceil(
                                     (comercialCost * (1 - elem.tresPagos)) / 3
-                                  ).toLocaleString("es-AR")}
+                                  ).toLocaleString('es-AR')}
                             </Text>
                           </View>
                         </View>
                         <View style={styles.containerAmountThree}>
                           <Text style={styles.amount}>
                             $
-                            {tipo_alquiler === "vivienda"
+                            {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
                                   cost * (1 - elem.tresPagos)
-                                ).toLocaleString("es-AR")
+                                ).toLocaleString('es-AR')
                               : Math.ceil(
                                   comercialCost * (1 - elem.tresPagos)
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString('es-AR')}
                             {/* 3 cuotas de:$
                             {tipo_alquiler === "vivienda"
                               ? Math.ceil(
@@ -672,29 +675,29 @@ const PDFFile = () => {
                         <View style={styles.containerAmountSix}>
                           <Text style={styles.amount}>
                             $
-                            {tipo_alquiler === "vivienda"
+                            {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
                                   cost * (1 - elem.seisPagos) * 0.25
-                                ).toLocaleString("es-AR")
+                                ).toLocaleString('es-AR')
                               : Math.ceil(
                                   comercialCost * (1 - elem.seisPagos) * 0.25
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString('es-AR')}
                           </Text>
                         </View>
                         <View style={styles.cincoCuotas}>
                           <Text style={styles.seisText}>más 5 cuotas de:</Text>
                           <Text style={styles.amountSix}>
                             $
-                            {tipo_alquiler === "vivienda"
+                            {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
                                   (cost * (1 - elem.seisPagos) * 0.75) / 5
-                                ).toLocaleString("es-AR")
+                                ).toLocaleString('es-AR')
                               : Math.ceil(
                                   (comercialCost *
                                     (1 - elem.seisPagos) *
                                     0.75) /
                                     5
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString('es-AR')}
                           </Text>
                         </View>
 
@@ -753,16 +756,16 @@ const PDFFile = () => {
 
                             <Text style={styles.seisText}>
                               $
-                              {tipo_alquiler === "vivienda"
+                              {tipo_alquiler === 'vivienda'
                                 ? Math.ceil(
                                     (cost * 1.2 * (1 - elem.seisPagos)) / 9
-                                  ).toLocaleString("es-AR")
+                                  ).toLocaleString('es-AR')
                                 : Math.ceil(
                                     (comercialCost *
                                       1.2 *
                                       (1 - elem.seisPagos)) /
                                       9
-                                  ).toLocaleString("es-AR")}
+                                  ).toLocaleString('es-AR')}
                             </Text>
                           </View>
                         </View>
@@ -770,13 +773,13 @@ const PDFFile = () => {
                         <View style={styles.containerAmountSix}>
                           <Text style={styles.amount}>
                             $
-                            {tipo_alquiler === "vivienda"
+                            {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
                                   cost * 1.2 * (1 - elem.seisPagos)
-                                ).toLocaleString("es-AR")
+                                ).toLocaleString('es-AR')
                               : Math.ceil(
                                   comercialCost * 1.2 * (1 - elem.seisPagos)
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString('es-AR')}
                           </Text>
                         </View>
                       </View>
@@ -802,16 +805,16 @@ const PDFFile = () => {
 
                             <Text style={styles.seisText}>
                               $
-                              {tipo_alquiler === "vivienda"
+                              {tipo_alquiler === 'vivienda'
                                 ? Math.ceil(
                                     (cost * 1.2 * (1 - elem.seisPagos)) / 12
-                                  ).toLocaleString("es-AR")
+                                  ).toLocaleString('es-AR')
                                 : Math.ceil(
                                     (comercialCost *
                                       1.2 *
                                       (1 - elem.seisPagos)) /
                                       12
-                                  ).toLocaleString("es-AR")}
+                                  ).toLocaleString('es-AR')}
                             </Text>
                           </View>
                         </View>
@@ -819,13 +822,13 @@ const PDFFile = () => {
                         <View style={styles.containerAmountSix}>
                           <Text style={styles.amount}>
                             $
-                            {tipo_alquiler === "vivienda"
+                            {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
                                   cost * 1.2 * (1 - elem.seisPagos)
-                                ).toLocaleString("es-AR")
+                                ).toLocaleString('es-AR')
                               : Math.ceil(
                                   comercialCost * 1.2 * (1 - elem.seisPagos)
-                                ).toLocaleString("es-AR")}
+                                ).toLocaleString('es-AR')}
                           </Text>
                         </View>
                       </View>
