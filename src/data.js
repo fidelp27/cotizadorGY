@@ -150,6 +150,22 @@ export const promociones = [
     nuevePagos: 0.2,
     docePagos: 0.2,
   },
+  {
+    nombre: 'Negociación 35',
+    unPago: 0.35,
+    tresPagos: 0.2,
+    seisPagos: 0.2,
+    nuevePagos: 0.2,
+    docePagos: 0.2,
+  },
+  {
+    nombre: 'Negociación 40',
+    unPago: 0.4,
+    tresPagos: 0.2,
+    seisPagos: 0.2,
+    nuevePagos: 0.2,
+    docePagos: 0.2,
+  },
 ];
 
 export const asesores = [
