@@ -352,16 +352,29 @@ const PDFFile = () => {
   }, [años, tipoAjuste, tipo_alquiler]);
 
   useEffect(() => {
-    if (tipo_alquiler === 'comercial') {
+    if (tipo_alquiler === 'comercial' && iva === false) {
       let arrayAjustes = [];
 
       for (let i = 0; i < tiempo - 1; i++) {
         arrayAjustes[0] = alquiler;
         arrayAjustes.push(arrayAjustes[i] * (porcentajeAjuste / 100 + 1));
       }
+      console.log(arrayAjustes);
       setAverage(Math.ceil(arrayAjustes.reduce((a, b) => a + b / tiempo, 0)));
+    } else if (tipo_alquiler === 'comercial' && iva === true) {
+      let arrayAjustes = [];
+      let arrayAjustado = [];
+      for (let i = 0; i < tiempo - 1; i++) {
+        arrayAjustes[0] = alquiler;
+        arrayAjustes.push(arrayAjustes[i] * (porcentajeAjuste / 100 + 1));
+      }
+      console.log(arrayAjustes);
+      for (let j = 0; j < tiempo; j++) {
+        arrayAjustado.push(arrayAjustes[j] * 1.21);
+      }
+      setAverage(Math.ceil(arrayAjustado.reduce((a, b) => a + b / tiempo, 0)));
     }
-  }, [alquiler, average, porcentajeAjuste, tiempo, tipo_alquiler]);
+  }, [alquiler, average, iva, porcentajeAjuste, tiempo, tipo_alquiler]);
 
   useEffect(() => {
     if (
@@ -384,7 +397,7 @@ const PDFFile = () => {
         promo === 'Mercado Libre Especial')
     ) {
       setComercialCost(
-        Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21 + alquiler)
+        Math.ceil((average + expensas) * (años * 12) * 0.06 + alquiler)
       );
     } else if (
       tipo_alquiler === 'comercial' &&
@@ -394,7 +407,7 @@ const PDFFile = () => {
       promo !== 'Garantía Especial Estudiantes' &&
       promo !== 'Mercado Libre Especial'
     ) {
-      setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21));
+      setComercialCost(Math.ceil((average + expensas) * 1.3));
     } else if (
       tipo_alquiler === 'comercial' &&
       iva === true &&
@@ -403,7 +416,7 @@ const PDFFile = () => {
         promo === 'Garantía Especial Estudiantes' ||
         promo === 'Mercado Libre Especial')
     ) {
-      setComercialCost(Math.ceil((average + expensas) * 1.3 * 1.21) + alquiler);
+      setComercialCost(Math.ceil((average + expensas) * 1.3) + alquiler);
     } else if (
       tipo_alquiler === 'comercial' &&
       iva === false &&
@@ -425,9 +438,7 @@ const PDFFile = () => {
     } else if (tipo_alquiler === 'comercial' && iva === false) {
       setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
     } else if (tipo_alquiler === 'comercial' && iva === true) {
-      setComercialCost(
-        Math.ceil((average + expensas) * (años * 12) * 0.06 * 1.21)
-      );
+      setComercialCost(Math.ceil((average + expensas) * (años * 12) * 0.06));
     }
   }, [alquiler, average, años, expensas, iva, promo, tipo_alquiler]);
 
