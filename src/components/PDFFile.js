@@ -118,6 +118,12 @@ const styles = StyleSheet.create({
   opciones: {
     fontSize: 12,
     fontWeight: 1000,
+    marginBottom: 5,
+    color: 'rgb(30,53,121)',
+  },
+  opcionesTDC: {
+    fontSize: 6,
+    fontWeight: 1000,
     marginBottom: 15,
     color: 'rgb(30,53,121)',
   },
@@ -299,7 +305,7 @@ const styles = StyleSheet.create({
     width: '65%',
   },
   mercadopago: {
-    marginTop: 10,
+    marginTop: 30,
   },
 });
 
@@ -743,7 +749,7 @@ const PDFFile = () => {
                     )}
                     <View style={styles.mercadopago}>
                       <Text style={styles.opciones}>Aboná con MercadoPago</Text>
-
+                      <Text style={styles.opcionesTDC}>Exclusivo con TDC</Text>
                       {/* 9 cuotas con interés */}
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
