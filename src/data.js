@@ -33,7 +33,7 @@ export const promociones = [
     nombre: 'Referido inmobiliaria',
     unPago: 0.2,
     tresPagos: 0.1,
-    seisPagos: 0.05,
+    seisPagos: 0,
     transferencia: 0.05,
     nuevePagos: 0,
     docePagos: 0,
