@@ -670,17 +670,18 @@ const PDFFile = () => {
                     {seis && (
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
-                          <Text style={styles.percentage}>
-                            {elem.seisPagos * 100}% OFF
-                            {/* {tipo_alquiler === "vivienda"
+                          {elem.seisPagos > 0 && (
+                            <Text style={styles.percentage}>
+                              {elem.seisPagos * 100}% OFF
+                              {/* {tipo_alquiler === "vivienda"
                               ? Math.ceil(
                                   cost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")
                               : Math.ceil(
                                   comercialCost * (1 - elem.seisPagos)
                                 ).toLocaleString("es-AR")} */}
-                          </Text>
-
+                            </Text>
+                          )}
                           <View style={styles.cuotasText}>
                             <Text style={styles.cuotaText}>6 cuotas</Text>
                             <Text style={styles.seisText}>
