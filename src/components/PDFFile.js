@@ -131,10 +131,18 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   costocontainer: {
-    backgroundColor: 'rgb(30,53,121)',
-    padding: '7px',
-    color: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     borderRadius: '5px',
+    marginBottom: '12',
+  },
+  costo_gy: {
+    fontSize: 10,
+  },
+  price_gy: {
+    fontSize: 10,
+    marginLeft: 5,
   },
   pagos: {
     width: 400,
@@ -564,6 +572,18 @@ const PDFFile = () => {
                 </>
               )}
               {iva === true && <Text style={styles.text}>IVA: 21% </Text>}
+            </View>
+            {/* //Costo de la garantíaler */}
+            <View style={styles.costocontainer}>
+              <Text style={styles.costo_gy}>
+                Costo de la garantía de alquiler GY:
+              </Text>
+              <Text style={styles.price_gy}>
+                $
+                {tipo_alquiler === 'vivienda'
+                  ? cost.toLocaleString('es-AR')
+                  : comercialCost.toLocaleString('es-AR')}
+              </Text>
             </View>
 
             <Text style={styles.opciones}>Formas de pago y financiación</Text>
