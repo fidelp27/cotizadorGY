@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     fontWeight: 1000,
   },
   amount: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: 1000,
     color: 'rgb(40,40,40)',
   },
