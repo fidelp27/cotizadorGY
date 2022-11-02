@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 .App {
   background-image: url("https://i.imgur.com/Ck0lzpL.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
+=======
+.App {
+  background-image: url("https://i.imgur.com/Ck0lzpL.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+>>>>>>> Production
 }
