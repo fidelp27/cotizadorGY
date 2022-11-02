@@ -619,7 +619,13 @@ const PDFFile = () => {
                     {elem.unPago.efectivo !== elem.unPago.transferencia && (
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
-                          <Text style={styles.percentage}>
+                          <Text
+                            style={
+                              !elem.unPago.transferencia > 0
+                                ? { color: 'white' }
+                                : styles.percentage
+                            }
+                          >
                             {elem.unPago.transferencia * 100}% OFF
                           </Text>
                           <Text style={styles.cuotaText}>
@@ -645,11 +651,16 @@ const PDFFile = () => {
                     {tres && (
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
-                          {elem.tresPagos.efectivo > 0 && (
-                            <Text style={styles.percentage}>
-                              {elem.tresPagos.efectivo * 100}% OFF
-                            </Text>
-                          )}
+                          <Text
+                            style={
+                              !elem.tresPagos.efectivo > 0
+                                ? { color: 'white' }
+                                : styles.percentage
+                            }
+                          >
+                            {elem.tresPagos.efectivo * 100}% OFF
+                          </Text>
+
                           <View style={styles.cuotasTextThree}>
                             <Text style={styles.cuotaText}>
                               en 3 cuotas en efectivo:
@@ -676,7 +687,13 @@ const PDFFile = () => {
                       elem.tresPagos.transferencia && (
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
-                          <Text style={styles.percentage}>
+                          <Text
+                            style={
+                              !elem.tresPagos.efectivo > 0
+                                ? { color: 'white' }
+                                : styles.percentage
+                            }
+                          >
                             {elem.tresPagos.transferencia * 100}% OFF
                           </Text>
 
@@ -708,7 +725,13 @@ const PDFFile = () => {
                       <View style={styles.boxPrice}>
                         <View style={styles.pagos}>
                           {elem.seisPagos > 0 && (
-                            <Text style={styles.percentage}>
+                            <Text
+                              style={
+                                !elem.seisPagos.efectivo > 0
+                                  ? { color: 'white' }
+                                  : styles.percentage
+                              }
+                            >
                               {elem.seisPagos.efectivo * 100}% OFF
                             </Text>
                           )}
