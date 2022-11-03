@@ -1,7 +1,7 @@
 {
   "name": "reactpdg",
   "version": "0.1.0",
-  "homepage":   "https://fidelp27.github.io/cotigy",
+  "homepage": "https://fidelp27.github.io/cotizadorGY",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
