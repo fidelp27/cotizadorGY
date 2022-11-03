@@ -1,13 +1,14 @@
-<<<<<<< HEAD
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input[type=number]{
+
+input[type=number] {
     -moz-appearance: textfield;
 }
-.container-form{
+
+.container-form {
     width: 100vw;
     height: 75vh;
     display: flex;
@@ -15,7 +16,8 @@ input[type=number]{
     align-items: center;
     justify-content: center;
 }
-.form{
+
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,7 +26,8 @@ input[type=number]{
     border-radius: .5rem;
     background-color: rgba(255, 255, 255, 0.251);
 }
-.form h1{
+
+.form h1 {
     margin: 0;
     padding: 1rem;
     text-align: center;
@@ -32,63 +35,73 @@ input[type=number]{
     border-radius: .5rem .5rem 0 0;
     text-align: center;
     color: azure;
-    letter-spacing: 2px;    
+    letter-spacing: 2px;
 }
-.form .input-group{
-    display: flex;  
+
+.form .input-group {
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: .5rem;
 }
-.input-group input,.input-group select{
+
+.input-group input,
+.input-group select {
     padding: 0.5rem 0;
     border: 1px solid rgba(70, 69, 69, 0.292);
     border-radius: .5rem;
 
 }
-.group-comercial{
+
+.group-comercial {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
-.input-group .label{
+
+.input-group .label {
     width: 150px;
     text-align: left;
     font-weight: 700;
     letter-spacing: 1px;
 
 }
-.input{
+
+.input {
     width: 200px;
     text-align: center;
     border-radius: .5rem;
 }
 
-.input-ajuste-porcentaje{
+.input-ajuste-porcentaje {
     width: 50px;
     margin-right: 2rem;
     text-align: center;
 }
-.input-ajuste{
+
+.input-ajuste {
     width: 200px;
 }
-.switch{
+
+.switch {
     width: 115px;
 }
-.porcentaje-switch{
+
+.porcentaje-switch {
     display: flex;
     justify-content: center;
 }
 
-.error{
+.error {
     width: 100%;
     font-size: .9rem;
     color: red;
     font-weight: bold;
     text-align: center;
 }
-.btn{
+
+.btn {
     padding: .8rem;
     margin-top: 0.5rem;
     border-radius: 0 0 .5rem .5rem;
@@ -100,173 +113,43 @@ input[type=number]{
     transition: 1s ease;
 
 }
-.btn:disabled{
+
+.btn:disabled {
     background-color: rgba(74, 73, 73, 0.697);
     transition: 1s ease;
 }
 
 
-.btn:hover{
+.btn:hover {
     background-color: rgba(255, 0, 0, 0.632);
 }
-.show-cuotas{
+
+.show-cuotas {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: .4rem;
 }
-.fieldset{
+
+.fieldset {
     display: flex;
     justify-content: center;
     text-align: center;
     font-weight: bold;
     width: 100%;
 }
-.fieldset span{
+
+.fieldset span {
     font-size: .7rem;
     font-weight: bolder;
 
 }
-.switch-cuotas{
+
+.switch-cuotas {
     width: 100px;
 }
-.error-uno{
+
+.error-uno {
     background-color: red;
     border-radius: 1rem;
-=======
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type=number]{
-    -moz-appearance: textfield;
-}
-.container-form{
-    width: 100vw;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 450px;
-    margin: 0 auto;
-    border-radius: .5rem;
-    background-color: rgba(255, 255, 255, 0.251);
-}
-.form h1{
-    margin: 0;
-    padding: 1rem;
-    text-align: center;
-    background-color: blue;
-    border-radius: .5rem .5rem 0 0;
-    text-align: center;
-    color: azure;
-    letter-spacing: 2px;    
-}
-.form .input-group{
-    display: flex;  
-    align-items: center;
-    justify-content: center;
-    padding: .5rem;
-}
-.input-group input,.input-group select{
-    padding: 0.5rem 0;
-    border: 1px solid rgba(70, 69, 69, 0.292);
-    border-radius: .5rem;
-
-}
-.group-comercial{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-.input-group .label{
-    width: 150px;
-    text-align: left;
-    font-weight: 700;
-    letter-spacing: 1px;
-
-}
-.input{
-    width: 200px;
-    text-align: center;
-    border-radius: .5rem;
-}
-
-.input-ajuste-porcentaje{
-    width: 50px;
-    margin-right: 2rem;
-    text-align: center;
-}
-.input-ajuste{
-    width: 200px;
-}
-.switch{
-    width: 115px;
-}
-.porcentaje-switch{
-    display: flex;
-    justify-content: center;
-}
-
-.error{
-    width: 100%;
-    font-size: .9rem;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-}
-.btn{
-    padding: .8rem;
-    margin-top: 0.5rem;
-    border-radius: 0 0 .5rem .5rem;
-    border: none;
-    cursor: pointer;
-    background-color: red;
-    color: azure;
-    letter-spacing: 1px;
-    transition: 1s ease;
-
-}
-.btn:disabled{
-    background-color: rgba(74, 73, 73, 0.697);
-    transition: 1s ease;
-}
-
-
-.btn:hover{
-    background-color: rgba(255, 0, 0, 0.632);
-}
-.show-cuotas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: .4rem;
-}
-.fieldset{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-    width: 100%;
-}
-.fieldset span{
-    font-size: .7rem;
-    font-weight: bolder;
-
-}
-.switch-cuotas{
-    width: 100px;
-}
-.error-uno{
-    background-color: red;
-    border-radius: 1rem;
->>>>>>> Production
 }
