@@ -108,7 +108,7 @@ export const promociones = [
     docePagos: 0,
   },
   {
-    nombre: 'Globant',
+    nombre: 'Globant, Reserve',
     unPago: { efectivo: 0.25, transferencia: 0.1 },
     tresPagos: { efectivo: 0.05, transferencia: 0.05, santander: 0 },
     seisPagos: { efectivo: 0, transferencia: 0, santander: 0 },
