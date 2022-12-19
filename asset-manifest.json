@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/cotizadorGY/static/css/main.da77dc29.chunk.css",
-    "main.js": "/cotizadorGY/static/js/main.f4ad95f7.chunk.js",
-    "main.js.map": "/cotizadorGY/static/js/main.f4ad95f7.chunk.js.map",
+    "main.js": "/cotizadorGY/static/js/main.80365f12.chunk.js",
+    "main.js.map": "/cotizadorGY/static/js/main.80365f12.chunk.js.map",
     "runtime-main.js": "/cotizadorGY/static/js/runtime-main.bb10bb31.js",
     "runtime-main.js.map": "/cotizadorGY/static/js/runtime-main.bb10bb31.js.map",
-    "static/js/2.dfe43b79.chunk.js": "/cotizadorGY/static/js/2.dfe43b79.chunk.js",
-    "static/js/2.dfe43b79.chunk.js.map": "/cotizadorGY/static/js/2.dfe43b79.chunk.js.map",
+    "static/js/2.9b930c61.chunk.js": "/cotizadorGY/static/js/2.9b930c61.chunk.js",
+    "static/js/2.9b930c61.chunk.js.map": "/cotizadorGY/static/js/2.9b930c61.chunk.js.map",
     "static/js/3.6eaccf60.chunk.js": "/cotizadorGY/static/js/3.6eaccf60.chunk.js",
     "static/js/3.6eaccf60.chunk.js.map": "/cotizadorGY/static/js/3.6eaccf60.chunk.js.map",
     "index.html": "/cotizadorGY/index.html",
     "static/css/main.da77dc29.chunk.css.map": "/cotizadorGY/static/css/main.da77dc29.chunk.css.map",
-    "static/js/2.dfe43b79.chunk.js.LICENSE.txt": "/cotizadorGY/static/js/2.dfe43b79.chunk.js.LICENSE.txt"
+    "static/js/2.9b930c61.chunk.js.LICENSE.txt": "/cotizadorGY/static/js/2.9b930c61.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bb10bb31.js",
-    "static/js/2.dfe43b79.chunk.js",
+    "static/js/2.9b930c61.chunk.js",
     "static/css/main.da77dc29.chunk.css",
-    "static/js/main.f4ad95f7.chunk.js"
+    "static/js/main.80365f12.chunk.js"
   ]
 }
