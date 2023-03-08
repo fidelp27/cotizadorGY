@@ -165,11 +165,6 @@ export const promociones = [
 
 export const asesores = [
   {
-    nombre: 'Ana Carolina Jara Pernia',
-    email: 'ana@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
     nombre: 'Angeles Torres',
     email: 'angeles@garantiaya.com.ar',
     cargo: 'Asesora Comercial',
@@ -180,44 +175,14 @@ export const asesores = [
     cargo: 'Asesor Comercial',
   },
   {
-    nombre: 'Dairalys Carrero',
-    email: 'daira@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
-    nombre: 'Giuliana Ramirez',
-    email: 'giuliana@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
     nombre: 'Josenna Di Lorenzo',
     email: 'josenna@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
-    nombre: 'Marialis Fuenmayor',
-    email: 'marialis@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
-    nombre: 'Paz Ramos',
-    email: 'paz@garantiaya.com.ar',
     cargo: 'Asesora Comercial',
   },
   {
     nombre: 'Nelson Sambrano',
     email: 'nelson@garantiaya.com.ar',
     cargo: 'Asesor Comercial',
-  },
-  {
-    nombre: 'Valentina Aguilera',
-    email: 'valentina@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
-    nombre: 'Zahira Caffarena',
-    email: 'zahira@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
   },
   {
     nombre: 'Anabella Maggio',
@@ -267,6 +232,21 @@ export const asesores = [
   {
     nombre: 'Paula Balmaceda',
     email: 'paula.balmaceda@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Laura Rodríguez',
+    email: 'marialaura@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Micaela Lescano',
+    email: 'micaela@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Jesús Paz',
+    email: 'j.paz@garantiaya.com.ar',
     cargo: 'Asesora Comercial',
   },
 ];
