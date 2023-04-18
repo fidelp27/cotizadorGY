@@ -215,11 +215,6 @@ export const asesores = [
     cargo: 'Asesor Comercial',
   },
   {
-    nombre: 'Gabriela Vásquez',
-    email: 'gabriela@garantiaya.com.ar',
-    cargo: 'Asesora Comercial',
-  },
-  {
     nombre: 'Fernanda Monagas',
     email: 'fernanda@garantiaya.com.ar',
     cargo: 'Asesora Comercial',
@@ -247,6 +242,16 @@ export const asesores = [
   {
     nombre: 'Jesús Paz',
     email: 'j.paz@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Ivón Vera',
+    email: 'ivon@garantiaya.com.ar',
+    cargo: 'Asesora Comercial',
+  },
+  {
+    nombre: 'Stefany Torcatt',
+    email: 'stefany@garantiaya.com.ar',
     cargo: 'Asesora Comercial',
   },
 ];
