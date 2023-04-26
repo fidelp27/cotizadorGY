@@ -804,12 +804,10 @@ const PDFFile = () => {
                             $
                             {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
-                                  (cost * 1.45 * (1 - elem.nuevePagos)) / 9
+                                  (cost * 2 * (1 - elem.nuevePagos)) / 9
                                 ).toLocaleString('es-AR')
                               : Math.ceil(
-                                  (comercialCost *
-                                    1.45 *
-                                    (1 - elem.nuevePagos)) /
+                                  (comercialCost * 2 * (1 - elem.nuevePagos)) /
                                     9
                                 ).toLocaleString('es-AR')}
                           </Text>
@@ -835,12 +833,10 @@ const PDFFile = () => {
                             $
                             {tipo_alquiler === 'vivienda'
                               ? Math.ceil(
-                                  (cost * 1.45 * (1 - elem.docePagos)) / 12
+                                  (cost * 2 * (1 - elem.docePagos)) / 12
                                 ).toLocaleString('es-AR')
                               : Math.ceil(
-                                  (comercialCost *
-                                    1.45 *
-                                    (1 - elem.docePagos)) /
+                                  (comercialCost * 2 * (1 - elem.docePagos)) /
                                     12
                                 ).toLocaleString('es-AR')}
                           </Text>
