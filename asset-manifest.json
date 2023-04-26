@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cotizadorGY/static/css/main.da77dc29.chunk.css",
-    "main.js": "/cotizadorGY/static/js/main.a822b859.chunk.js",
-    "main.js.map": "/cotizadorGY/static/js/main.a822b859.chunk.js.map",
+    "main.js": "/cotizadorGY/static/js/main.2f6c4786.chunk.js",
+    "main.js.map": "/cotizadorGY/static/js/main.2f6c4786.chunk.js.map",
     "runtime-main.js": "/cotizadorGY/static/js/runtime-main.bb10bb31.js",
     "runtime-main.js.map": "/cotizadorGY/static/js/runtime-main.bb10bb31.js.map",
     "static/js/2.9b930c61.chunk.js": "/cotizadorGY/static/js/2.9b930c61.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bb10bb31.js",
     "static/js/2.9b930c61.chunk.js",
     "static/css/main.da77dc29.chunk.css",
-    "static/js/main.a822b859.chunk.js"
+    "static/js/main.2f6c4786.chunk.js"
   ]
 }
