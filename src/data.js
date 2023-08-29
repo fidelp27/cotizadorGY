@@ -12,7 +12,7 @@ export const tipoAjuste = [
 
 export const promociones = [
   {
-    nombre: 'Promo del mes',
+    nombre: 'Promo del Mes',
     unPago: { efectivo: 0.2, transferencia: 0.15 },
     tresPagos: { efectivo: 0.05, transferencia: 0, santander: 0 },
     seisPagos: { efectivo: 0, transferencia: 0, santander: 0 },
